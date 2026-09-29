@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Node
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Environment / secrets
+.env
+.env.local
+.env*.local
+
+# Model artifacts (regenerate with training scripts)
+backend/models/*.pkl
+
+# Data & logs
+backend/data/raw/*
+!backend/data/raw/.gitkeep
+backend/data/processed/*
+!backend/data/processed/.gitkeep
+backend/logs/*.log*
+
+# Testing / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

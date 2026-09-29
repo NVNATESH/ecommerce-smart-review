@@ -1,0 +1,40 @@
+{
+  "prepared_at": "2026-09-17T19:51:44.689123+00:00",
+  "seed": 42,
+  "source_file": "huggingface:SetFit/amazon_reviews_multi_en[train]",
+  "dataset_name": "Amazon Reviews Multi (English subset, McAuley-Lab)",
+  "text_column": "text",
+  "label_column": "label (0-4 == stars-1, mapped 0-1->negative, 2->neutral, 3-4->positive)",
+  "rows_loaded": 200000,
+  "rows_after_null_empty_removal": 200000,
+  "rows_with_unrecognised_label_dropped": 0,
+  "rows_after_min_length": 200000,
+  "min_text_chars": 3,
+  "exact_duplicates_removed": 694,
+  "conflicting_label_groups_kept_first": 0,
+  "rows_after_cleaning": 199306,
+  "train_samples": 159444,
+  "validation_samples": 19931,
+  "test_samples": 19931,
+  "class_distribution_overall": {
+    "negative": 79776,
+    "neutral": 39893,
+    "positive": 79637
+  },
+  "class_distribution_train": {
+    "negative": 63821,
+    "neutral": 31914,
+    "positive": 63709
+  },
+  "class_distribution_validation": {
+    "negative": 7978,
+    "neutral": 3989,
+    "positive": 7964
+  },
+  "class_distribution_test": {
+    "negative": 7977,
+    "neutral": 3990,
+    "positive": 7964
+  },
+  "split": "80/10/10 stratified (sklearn train_test_split, seed=42)"
+}

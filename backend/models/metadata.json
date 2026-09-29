@@ -1,0 +1,401 @@
+{
+  "sentiment": {
+    "selected_model": "Logistic Regression",
+    "selection_metric": "macro_f1 (validation set)",
+    "classes": [
+      "negative",
+      "neutral",
+      "positive"
+    ],
+    "training_rows": 159444,
+    "validation_rows": 19931,
+    "test_rows": 19931,
+    "tfidf_config": {
+      "analyzer": "word",
+      "ngram_range": [
+        1,
+        2
+      ],
+      "min_df": 2,
+      "max_df": 0.95,
+      "sublinear_tf": true,
+      "strip_accents": "unicode"
+    },
+    "training_dataset": "data/real/processed/{train,validation,test}.csv",
+    "dataset_name": "Amazon Reviews Multi (English subset, McAuley-Lab)",
+    "dataset_size": 199306,
+    "class_distribution": {
+      "negative": 79776,
+      "neutral": 39893,
+      "positive": 79637
+    },
+    "class_distribution_train": {
+      "negative": 63821,
+      "neutral": 31914,
+      "positive": 63709
+    },
+    "imbalance_handling": "Logistic Regression: class_weight='balanced' (computed on train only); Multinomial NB: train-only priors; splits stratified",
+    "trained_at": "2026-09-17T20:03:59.603978+00:00",
+    "model_version": "2.0.0-real-data",
+    "candidates_validation_metrics": [
+      {
+        "accuracy": 0.705,
+        "precision_macro": 0.6258,
+        "recall_macro": 0.6005,
+        "macro_f1": 0.565,
+        "weighted_f1": 0.6514,
+        "per_class": {
+          "negative": {
+            "precision": 0.6999,
+            "recall": 0.8536,
+            "f1_score": 0.7691,
+            "support": 7978
+          },
+          "neutral": {
+            "precision": 0.4486,
+            "recall": 0.0777,
+            "f1_score": 0.1325,
+            "support": 3989
+          },
+          "positive": {
+            "precision": 0.7288,
+            "recall": 0.8703,
+            "f1_score": 0.7933,
+            "support": 7964
+          }
+        },
+        "model_name": "Multinomial Naive Bayes"
+      },
+      {
+        "accuracy": 0.7029,
+        "precision_macro": 0.6536,
+        "recall_macro": 0.6537,
+        "macro_f1": 0.6536,
+        "weighted_f1": 0.7043,
+        "per_class": {
+          "negative": {
+            "precision": 0.7617,
+            "recall": 0.7512,
+            "f1_score": 0.7564,
+            "support": 7978
+          },
+          "neutral": {
+            "precision": 0.3924,
+            "recall": 0.4071,
+            "f1_score": 0.3996,
+            "support": 3989
+          },
+          "positive": {
+            "precision": 0.8068,
+            "recall": 0.8027,
+            "f1_score": 0.8048,
+            "support": 7964
+          }
+        },
+        "model_name": "Logistic Regression"
+      }
+    ],
+    "selected_model_test_metrics": {
+      "accuracy": 0.7017,
+      "precision_macro": 0.6517,
+      "recall_macro": 0.6516,
+      "macro_f1": 0.6516,
+      "weighted_f1": 0.7028,
+      "per_class": {
+        "negative": {
+          "precision": 0.7601,
+          "recall": 0.7584,
+          "f1_score": 0.7593,
+          "support": 7977
+        },
+        "neutral": {
+          "precision": 0.3902,
+          "recall": 0.401,
+          "f1_score": 0.3956,
+          "support": 3990
+        },
+        "positive": {
+          "precision": 0.8048,
+          "recall": 0.7955,
+          "f1_score": 0.8001,
+          "support": 7964
+        }
+      },
+      "confusion_matrix": [
+        [
+          6050,
+          1418,
+          509
+        ],
+        [
+          1362,
+          1600,
+          1028
+        ],
+        [
+          547,
+          1082,
+          6335
+        ]
+      ],
+      "model_name": "Logistic Regression"
+    },
+    "promotion_gates": {
+      "validation_macro_f1 >= MIN_VAL_MACRO_F1": "PASS",
+      "test_macro_f1 >= MIN_TEST_MACRO_F1": "PASS",
+      "test >= PROMOTION_DROP_FACTOR * validation": "PASS",
+      "sample sanity checks": "PASS"
+    },
+    "backup_dir": "models_backup_20260917_200359"
+  },
+  "review_detector": {
+    "selected_model": "Logistic Regression",
+    "selection_metric": "macro_f1",
+    "classes": [
+      "Not Review",
+      "Review"
+    ],
+    "training_rows": 534,
+    "test_rows": 134,
+    "tfidf_config": {
+      "analyzer": "char_wb",
+      "ngram_range": [
+        3,
+        5
+      ],
+      "min_df": 2,
+      "sublinear_tf": true
+    },
+    "training_dataset": "data/processed/train_review_detector.csv",
+    "trained_at": "2026-09-17T19:13:39.231101+00:00",
+    "model_version": "1.0.0",
+    "candidates": [
+      {
+        "model_name": "Logistic Regression",
+        "accuracy": 0.9851,
+        "precision_macro": 0.9917,
+        "recall_macro": 0.9333,
+        "macro_f1": 0.9601,
+        "weighted_f1": 0.9846,
+        "per_class": {
+          "Not Review": {
+            "precision": 1.0,
+            "recall": 0.8667,
+            "f1_score": 0.9286,
+            "support": 15
+          },
+          "Review": {
+            "precision": 0.9835,
+            "recall": 1.0,
+            "f1_score": 0.9917,
+            "support": 119
+          }
+        },
+        "confusion_matrix": [
+          [
+            13,
+            2
+          ],
+          [
+            0,
+            119
+          ]
+        ]
+      },
+      {
+        "model_name": "Multinomial Naive Bayes",
+        "accuracy": 0.9701,
+        "precision_macro": 0.9837,
+        "recall_macro": 0.8667,
+        "macro_f1": 0.9148,
+        "weighted_f1": 0.9681,
+        "per_class": {
+          "Not Review": {
+            "precision": 1.0,
+            "recall": 0.7333,
+            "f1_score": 0.8462,
+            "support": 15
+          },
+          "Review": {
+            "precision": 0.9675,
+            "recall": 1.0,
+            "f1_score": 0.9835,
+            "support": 119
+          }
+        },
+        "confusion_matrix": [
+          [
+            11,
+            4
+          ],
+          [
+            0,
+            119
+          ]
+        ]
+      }
+    ]
+  },
+  "sentiment_synthetic_v1": {
+    "selected_model": "Multinomial Naive Bayes",
+    "selection_metric": "macro_f1",
+    "classes": [
+      "Negative",
+      "Neutral",
+      "Positive"
+    ],
+    "training_rows": 577,
+    "test_rows": 145,
+    "tfidf_config": {
+      "analyzer": "word",
+      "ngram_range": [
+        1,
+        2
+      ],
+      "min_df": 2,
+      "max_df": 0.95,
+      "sublinear_tf": true,
+      "strip_accents": "unicode"
+    },
+    "training_dataset": "data/processed/train_sentiment.csv",
+    "trained_at": "2026-09-17T19:24:42.250209+00:00",
+    "model_version": "1.0.0",
+    "candidates": [
+      {
+        "model_name": "Multinomial Naive Bayes",
+        "accuracy": 0.8138,
+        "precision_macro": 0.8499,
+        "recall_macro": 0.8493,
+        "macro_f1": 0.8487,
+        "weighted_f1": 0.8137,
+        "per_class": {
+          "Negative": {
+            "precision": 0.746,
+            "recall": 0.8103,
+            "f1_score": 0.7769,
+            "support": 58
+          },
+          "Neutral": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0,
+            "support": 26
+          },
+          "Positive": {
+            "precision": 0.8036,
+            "recall": 0.7377,
+            "f1_score": 0.7692,
+            "support": 61
+          }
+        },
+        "confusion_matrix": [
+          [
+            47,
+            0,
+            11
+          ],
+          [
+            0,
+            26,
+            0
+          ],
+          [
+            16,
+            0,
+            45
+          ]
+        ]
+      },
+      {
+        "model_name": "Logistic Regression",
+        "accuracy": 0.7724,
+        "precision_macro": 0.8172,
+        "recall_macro": 0.816,
+        "macro_f1": 0.8149,
+        "weighted_f1": 0.772,
+        "per_class": {
+          "Negative": {
+            "precision": 0.6923,
+            "recall": 0.7759,
+            "f1_score": 0.7317,
+            "support": 58
+          },
+          "Neutral": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0,
+            "support": 26
+          },
+          "Positive": {
+            "precision": 0.7593,
+            "recall": 0.6721,
+            "f1_score": 0.713,
+            "support": 61
+          }
+        },
+        "confusion_matrix": [
+          [
+            45,
+            0,
+            13
+          ],
+          [
+            0,
+            26,
+            0
+          ],
+          [
+            20,
+            0,
+            41
+          ]
+        ]
+      },
+      {
+        "model_name": "Calibrated Logistic Regression",
+        "accuracy": 0.7931,
+        "precision_macro": 0.8335,
+        "recall_macro": 0.8327,
+        "macro_f1": 0.8318,
+        "weighted_f1": 0.7928,
+        "per_class": {
+          "Negative": {
+            "precision": 0.7188,
+            "recall": 0.7931,
+            "f1_score": 0.7541,
+            "support": 58
+          },
+          "Neutral": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0,
+            "support": 26
+          },
+          "Positive": {
+            "precision": 0.7818,
+            "recall": 0.7049,
+            "f1_score": 0.7414,
+            "support": 61
+          }
+        },
+        "confusion_matrix": [
+          [
+            46,
+            0,
+            12
+          ],
+          [
+            0,
+            26,
+            0
+          ],
+          [
+            18,
+            0,
+            43
+          ]
+        ]
+      }
+    ]
+  }
+}

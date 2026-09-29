@@ -1,0 +1,21 @@
+id,review,label_expected
+1,"The battery life is excellent and the display is bright.",positive
+2,"Camera quality is terrible and the microphone is weak.",negative
+3,"The package arrived yesterday. The product has a 6.5 inch display.",neutral
+4,"Battery is amazing but the camera is disappointing.",mixed
+5,"asd123###",garbage
+6,"😀😀😀😀",emoji
+7,"https://example.com",url
+8,"Tomorrow I have my DBMS exam.",non_review
+9,"BEST BEST BEST BEST BUY NOW!!!!",suspicious
+10,"Battery life is excellent.",duplicate_seed
+11,"The battery backup is excellent.",near_duplicate
+12,"Sound quality is superb and the build feels premium.",positive
+13,"The phone heats up a lot while charging and the performance lags.",negative
+14,"It cost ₹20000 and has a 5000mAh battery with a 120Hz screen.",neutral
+15,"Delivery was fast and the packaging was neat.",positive
+16,"Screen brightness is dull even at maximum and it scratches easily.",negative
+17,"Value for money. The processor handles games smoothly.",positive
+18,"The keyboard keys feel flimsy and the mouse cursor lags.",negative
+19,"I use it for calls. It has 128GB storage.",neutral
+20,"Worst purchase ever. The speaker crackles and the mic is unclear.",negative
