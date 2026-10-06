@@ -66,7 +66,15 @@ Key architectural rule: **the browser handles presentation and interaction while
 - **Model evaluation** — Accuracy, Precision, Recall, Macro F1, Weighted F1 per candidate; **macro F1 is the model-selection metric**; stratified split, no leakage; confusion matrices exposed via `/api/models`.
 - **Explainability** — top contributing TF-IDF features per prediction (non-causal wording: "these model features contributed strongly to the classification").
 - **Async CSV processing** — upload → job → progress stages ("Detecting reviews…", "Running sentiment model…", …) via `GET /api/analysis/{id}/status`. No Celery/Redis needed.
-- **Premium UI** — dark glassmorphism, subtle glow, animated borders, lazy-loaded procedural 3D hero (no external assets) and a meaningful rotatable 3D aspect chart (X: aspect, Y: positive share, Z: mentions).
+- **Premium UI** — dark glassmorphism, subtle glow, animated borders, lazy-loaded procedural 3D hero (no external assets) and a meaningful rotatable 3D aspect chart (X: aspect, Y: sentiment score, Z: mentions).
+- **Stored products (persistent)** — every analysis can be saved under a product name; feedback reviews are stored on disk (`backend/data/products/`) and survive server restarts. Build a review history per product over time.
+- **Add reviews anytime** — paste new customer feedback into a stored product and the **full analysis re-runs automatically** on the combined dataset (verdict, aspects, quality all update).
+- **Ask the Reviews (Q&A)** — type any question ("how is the camera?", "any delivery issues?") and the engine answers with aspect-routed evidence and real review quotes. Aspect routing + TF-IDF retrieval + template answer synthesis — no external LLM/API, fully offline.
+- **Review Trust Score** — one transparent gauge (valid-review ratio, suspicious rate, duplicate rate, volume, quality) telling you **how much the dataset's verdict can be trusted**, with the component breakdown shown in the UI.
+- **Compare Products** — select 2–4 stored products for a side-by-side radar overlay and per-aspect table with qualitative ratings (**Best / Excellent / Good / Average / Poor / Worst**) derived from each aspect's sentiment mix.
+- **Emotion Mix** — lexicon-based emotion signals (Joy, Anger, Sadness, Fear, Love) visualized as a radar chart on the dashboard.
+- **Evidence-backed Pros/Cons** — every pro/con entry carries up to 2 real review quotes as supporting evidence.
+- **Emoji sentiment signals** — common emojis (😍 👍 vs 😡 👎 💔) are weighted polarity features, so reviews that express feeling through emojis are still understood.
 
 ## Folder Structure
 
@@ -74,7 +82,8 @@ Key architectural rule: **the browser handles presentation and interaction while
 ecommerce-smart-review/
 ├── frontend/
 │   ├── app/                  # App Router pages (landing, dashboard, analysis,
-│   │                         # aspects, quality, suspicious, reviews, models, exports)
+│   │                         # products, compare, aspects, quality, suspicious,
+│   │                         # reviews, models, exports)
 │   ├── components/           # layout/ charts/ 3d/ reviews/ aspects/ upload/ ui/
 │   ├── hooks/                # useAnalysis
 │   ├── lib/                  # api.ts (central API layer), types.ts, utils.ts, store.ts
@@ -83,22 +92,27 @@ ecommerce-smart-review/
 ├── backend/
 │   ├── main.py               # app factory, lifespan model loading, CORS, logging
 │   ├── config.py             # env-driven configuration
-│   ├── api/routes/           # health · upload · analysis · reviews · models · export
+│   ├── api/routes/           # health · upload · analysis · ask · products ·
+│   │                         # compare · reviews · models · export
 │   ├── schemas/              # Pydantic request/response models
 │   ├── services/             # input, preprocessing, review detector, sentiment,
 │   │                         # aspect, quality, suspicious, duplicate, aggregation,
-│   │                         # export, analysis pipeline + store
-│   ├── nlp/                  # preprocessing, tokenizer, aspect_engine, keyword_extractor
+│   │                         # export, ask (Q&A), product store (persistent),
+│   │                         # analysis pipeline + store
+│   ├── nlp/                  # preprocessing, tokenizer, aspect_engine, keyword_extractor,
+│   │                         # emotions
 │   ├── ml/                   # sentiment_model, review_detector, confidence,
 │   │                         # explainability, model_manager
 │   ├── validation/           # input_validator, review_validator, schema_validator
 │   ├── quality/              # quality_engine
 │   ├── security/             # file_security (upload validation, CSV sanitization)
 │   ├── models/               # *.pkl artifacts + metadata.json (generated)
-│   ├── data/                 # raw/ processed/ (training CSVs), sample_reviews.csv
+│   ├── data/                 # raw/ processed/ (training CSVs), real/ (dataset splits),
+│   │                         # products/ (stored product feedback), sample_reviews.csv
 │   ├── training/             # build_training_data, train_sentiment,
 │   │                         # train_review_detector, evaluate_models
 │   └── tests/                # pytest suite (69 tests)
+├── sample_inputs/            # ready-made demo CSVs + paste text (3 real-named products)
 ├── docker-compose.yml
 └── README.md
 ```
@@ -177,6 +191,12 @@ Interactive docs: **http://localhost:8000/docs** (Swagger) and **/redoc**.
 | GET | `/api/quality/{id}` | Quality report + verdict + statistics |
 | GET | `/api/models` | Model metadata + evaluation metrics (all candidates) |
 | GET | `/api/export/{id}` | `format=reviews_csv\|aspects_csv\|quality_json\|metrics_json\|analysis_json` |
+| GET | `/api/products` | List stored products (name, review count, verdict, trust, quality) |
+| GET | `/api/products/{pid}` | Product detail incl. latest analysis summary |
+| POST | `/api/products/{pid}/reviews` | Append new reviews to a stored product and re-analyze |
+| DELETE | `/api/products/{pid}` | Delete a stored product |
+| GET | `/api/compare?ids=a,b` | Side-by-side comparison: verdicts, trust, quality, per-aspect ratings |
+| GET | `/api/ask/{id}?q=...` | Ask-the-Reviews: question answering with evidence quotes |
 
 ### Example requests
 
@@ -197,6 +217,18 @@ curl "http://localhost:8000/api/reviews/{analysis_id}?page=1&page_size=50&sentim
 
 # Export
 curl -O -J "http://localhost:8000/api/export/{analysis_id}?format=reviews_csv"
+
+# Store analysis as a product (My Products page)
+curl -X POST http://localhost:8000/api/analyze/text -H "Content-Type: application/json" \n  -d '{"text": "...", "product_name": "Galaxy S24 Ultra"}'
+
+# Add new reviews to that product later (auto re-analyzes)
+curl -X POST http://localhost:8000/api/products/{product_id}/reviews -H "Content-Type: application/json" \n  -d '{"texts": ["New review one.", "New review two."]}'
+
+# Compare two stored products
+curl "http://localhost:8000/api/compare?ids={product_a},{product_b}"
+
+# Ask the Reviews
+curl "http://localhost:8000/api/ask/{analysis_id}?q=how%20is%20the%20camera%3F"
 ```
 
 Structured errors (never raw stack traces):
@@ -212,8 +244,8 @@ Structured errors (never raw stack traces):
 ## Testing
 
 ```bash
-# backend (69 tests: validation, preprocessing, review detection, sentiment,
-# aspects, quality, duplicates, end-to-end API)
+# backend (87 tests: validation, preprocessing, review detection, sentiment,
+# aspects, quality, duplicates, products, ask, trust, end-to-end API)
 cd backend && python -m pytest -q
 
 # frontend (unit tests for API layer + utils)
