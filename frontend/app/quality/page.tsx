@@ -112,8 +112,7 @@ export default function QualityPage() {
                 ))}
               </ul>
               <p className="mt-3 text-[11px] text-slate-600">
-                Weights: review detection 25% · language 20% · opinion 15% · length 15% · diversity 15% · features 10%,
-                minus duplicate and uncertainty penalties.
+                Weights: review detection 25% · Opinion density 15% · Feature density 10% · Average length 15% · Language quality 20% · Dataset diversity 15% — minus duplicate &amp; uncertainty penalties.
               </p>
             </GlassCard>
           </div>

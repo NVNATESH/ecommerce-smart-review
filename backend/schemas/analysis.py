@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from schemas.review import ReviewResult, SentimentLabel
 
@@ -26,6 +26,7 @@ class ProsConsItem(BaseModel):
     percentage: float
     mention_count: int
     average_confidence: float
+    quotes: list[str] = Field(default_factory=list)
 
 
 class QualityComponentScores(BaseModel):
@@ -99,6 +100,12 @@ class ConfidenceHistogram(BaseModel):
     counts: list[int]
 
 
+class TrustInfo(BaseModel):
+    score: float
+    band: str
+    components: dict[str, float]
+
+
 class AnalysisSummary(BaseModel):
     analysis_id: str
     created_at: str
@@ -115,10 +122,14 @@ class AnalysisSummary(BaseModel):
     most_discussed: list[ProsConsItem]
     statistics: AnalysisStatistics
     verdict: Verdict
+    trust: TrustInfo | None = None
+    emotions: list[dict] | None = None
 
 
 class AnalysisResponse(AnalysisSummary):
     reviews: list[ReviewResult]
+    product_id: str | None = None
+    product_name: str | None = None
 
 
 class AnalysisStatusResponse(BaseModel):

@@ -1,9 +1,0 @@
-INFO:     Started server process [19776]
-INFO:     Waiting for application startup.
-2026-09-19 15:38:48,955 INFO app: Starting E-Commerce Smart Review & Sentiment Engine v1.0.0
-2026-09-19 15:38:50,014 INFO app.models: Models loaded from models (sentiment=Logistic Regression, review_detector=Logistic Regression)
-2026-09-19 15:38:54,381 INFO app: Warm-up complete in 4.4s
-2026-09-19 15:38:54,381 INFO app: All models loaded; application ready.
-INFO:     Application startup complete.
-INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
-INFO:     127.0.0.1:60968 - "GET /api/health HTTP/1.1" 200 OK

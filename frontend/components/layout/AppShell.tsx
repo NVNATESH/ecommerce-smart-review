@@ -10,6 +10,8 @@ import {
   FileSearch,
   Gauge,
   LayoutDashboard,
+  Package,
+  Scale,
   ScanSearch,
   ShieldAlert,
   UploadCloud,
@@ -18,10 +20,12 @@ import {
 const NAV = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/analysis", label: "Analysis", icon: UploadCloud },
+  { href: "/products", label: "My Products", icon: Package },
+  { href: "/compare", label: "Compare", icon: Scale },
   { href: "/aspects", label: "Aspect Intelligence", icon: Boxes },
   { href: "/quality", label: "Review Quality", icon: Gauge },
   { href: "/suspicious", label: "Suspicious Reviews", icon: ShieldAlert },
-  { href: "/reviews", label: "Review Inspector", icon: ScanSearch },
+  { href: "/reviews", label: "Review Inspector", icon: FileSearch },
   { href: "/models", label: "Model Performance", icon: BarChart3 },
   { href: "/exports", label: "Exports", icon: Download },
 ];

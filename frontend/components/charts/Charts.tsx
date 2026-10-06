@@ -134,6 +134,19 @@ export function QualityRadar({
   );
 }
 
+export function EmotionRadar({ data }: { data: { emotion: string; count: number }[] }) {
+  return (
+    <ResponsiveContainer width="100%" height={220}>
+      <RadarChart data={data} outerRadius="72%">
+        <PolarGrid stroke="rgba(255,255,255,0.08)" />
+        <PolarAngleAxis dataKey="emotion" tick={{ fill: "#94A3B8", fontSize: 11 }} />
+        <Radar dataKey="count" stroke="#F5A623" fill="#F5A623" fillOpacity={0.35} />
+        <Tooltip contentStyle={TOOLTIP_STYLE} />
+      </RadarChart>
+    </ResponsiveContainer>
+  );
+}
+
 export function ConfidenceHistogramChart({
   buckets,
   counts,

@@ -37,14 +37,18 @@ class SentimentService:
     MIXED_MAX_CONF = 0.80           # balanced clauses + this little model confidence -> Mixed
     NEUTRAL_FLIP_MAX_CONF = 0.68    # model this unsure with no polar clauses...
     NEUTRAL_FLIP_MIN_NEU = 0.20     # ...and at least this much Neutral probability
+    EMOJI_NUDGE = 0.20              # virtual-clause weight for wordless emoji reviews
+    EMOJI_NUDGE_MAX_CONF = 0.60     # ...only when the model is this unsure
 
     def __init__(self, manager: ModelManager):
         self.engine = SentimentEngine(manager.sentiment_model, manager.sentiment_vectorizer)
 
-    def score(self, model_texts: list[str], clause_analyses_per_review: list) -> list[dict]:
+    def score(self, model_texts: list[str], clause_analyses_per_review: list,
+              emoji_signals: list[dict] | None = None) -> list[dict]:
         probas = self.engine.predict_proba(model_texts)
+        signals = emoji_signals or [None] * len(probas)
         results = []
-        for row, clause_analyses in zip(probas, clause_analyses_per_review):
+        for row, clause_analyses, signal in zip(probas, clause_analyses_per_review, signals):
             probs = {
                 label: float(row[self.engine.class_index(label)])
                 for label in ("Positive", "Negative", "Neutral")
@@ -75,10 +79,39 @@ class SentimentService:
                 balanced = min(pos_clauses, neg_clauses) >= 1 and abs(pos_clauses - neg_clauses) <= 1
                 if margin < self.MIXED_MARGIN or (balanced and max(probs.values()) < self.MIXED_MAX_CONF):
                     label = "Mixed"
-            # 4) Neutral for uncertain, purely factual reviews
+            # 4) Neutral for uncertain, purely factual reviews; wordless emoji
+            #    reviews keep their emoji signal (treated as virtual clauses)
             elif not pos_clauses and not neg_clauses:
+                e_pos = min(int(signal["pos"]) if signal else 0, 2)
+                e_neg = min(int(signal["neg"]) if signal else 0, 2)
                 if max(probs.values()) < self.NEUTRAL_FLIP_MAX_CONF and probs["Neutral"] >= self.NEUTRAL_FLIP_MIN_NEU:
                     label = "Neutral"
+                elif (e_pos or e_neg) and e_pos != e_neg and max(probs.values()) < self.EMOJI_NUDGE_MAX_CONF:
+                    lam = self.EMOJI_NUDGE * max(e_pos, e_neg)
+                    share = e_pos / (e_pos + e_neg)
+                    p_pos = probs["Positive"] + lam * share
+                    p_neg = probs["Negative"] + lam * (1.0 - share)
+                    total = p_pos + p_neg + probs["Neutral"]
+                    probs = {
+                        "Positive": p_pos / total,
+                        "Negative": p_neg / total,
+                        "Neutral": probs["Neutral"] / total,
+                    }
+                    label = max(probs, key=probs.get)
+
+            # 5) emoji nudge: reviews that express feeling ONLY through emojis
+            #    (no words, no clauses) keep that signal when the model is unsure
+            if signal and not pos_clauses and not neg_clauses:
+                e_pos, e_neg = signal["pos"], signal["neg"]
+                if (e_pos or e_neg) and max(probs.values()) < self.EMOJI_NUDGE_MAX_CONF and e_pos != e_neg:
+                    lam = self.EMOJI_NUDGE * max(e_pos, e_neg)
+                    if e_pos > e_neg:
+                        probs["Positive"] += lam
+                    else:
+                        probs["Negative"] += lam
+                    total = probs["Positive"] + probs["Negative"] + probs["Neutral"]
+                    probs = {k: v / total for k, v in probs.items()}
+                    label = max(probs, key=probs.get)
 
             results.append({
                 "sentiment": label,

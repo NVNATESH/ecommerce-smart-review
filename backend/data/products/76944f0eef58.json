@@ -1,0 +1,755 @@
+{
+ "id": "76944f0eef58",
+ "name": "Samsung Galaxy S24 Ultra",
+ "created_at": "2026-10-06T07:30:11.336519+00:00",
+ "updated_at": "2026-10-06T07:30:11.379958+00:00",
+ "reviews": [
+  "The battery life is excellent and easily lasts two full days of heavy use.",
+  "Camera quality is brilliant, portraits come out sharp even at night.",
+  "The display is gorgeous and bright enough to use under direct sunlight.",
+  "Performance is smooth, gaming runs without a single stutter.",
+  "Build quality feels premium and the phone looks stunning.",
+  "Delivery was fast, arrived a day earlier than expected.",
+  "Speaker loudness is impressive for phone speakers.",
+  "Value for money is outstanding at this price point.",
+  "Sound quality during calls is crisp and clear.",
+  "Overall this is the best phone I have owned in years."
+ ],
+ "analysis_id": "5622be2fb1374522",
+ "summary": {
+  "analysis_id": "5622be2fb1374522",
+  "created_at": "2026-10-06T07:30:11.337798+00:00",
+  "source": "csv",
+  "filename": null,
+  "detected_column": null,
+  "status": "completed",
+  "progress": 100,
+  "stage": "Completed",
+  "error": null,
+  "sentiment": {
+   "positive": 9,
+   "neutral": 0,
+   "negative": 1,
+   "mixed": 0,
+   "positive_percentage": 90.0,
+   "neutral_percentage": 0.0,
+   "negative_percentage": 10.0,
+   "mixed_percentage": 0.0
+  },
+  "confidence_histogram": {
+   "buckets": [
+    "0-50%",
+    "50-70%",
+    "70-85%",
+    "85-95%",
+    "95-100%"
+   ],
+   "counts": [
+    1,
+    3,
+    2,
+    4,
+    0
+   ]
+  },
+  "quality": {
+   "total_rows": 10,
+   "valid_reviews": 9,
+   "uncertain_reviews": 1,
+   "invalid_reviews": 0,
+   "exact_duplicates": 0,
+   "near_duplicates": 1,
+   "average_word_count": 9.9,
+   "opinion_density": 1.0,
+   "feature_density": 0.9,
+   "alphabetic_ratio": 0.974,
+   "gibberish_ratio": 0.0,
+   "excessive_symbol_ratio": 0.0,
+   "language_quality": 98.4,
+   "dataset_diversity": 0.788,
+   "quality_score": 93.4,
+   "dataset_decision": "ACCEPT",
+   "reasons": [
+    "Dataset passed all quality checks."
+   ],
+   "component_scores": {
+    "review_detection": 95.0,
+    "opinion_density": 100.0,
+    "feature_density": 100.0,
+    "average_length": 100.0,
+    "language_quality": 98.4,
+    "dataset_diversity": 100.0
+   }
+  },
+  "aspects": [
+   {
+    "aspect": "Sound",
+    "mention_count": 2,
+    "positive_count": 2,
+    "neutral_count": 0,
+    "negative_count": 0,
+    "positive_percentage": 100.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 0.0,
+    "average_confidence": 0.805,
+    "overall": "Positive"
+   },
+   {
+    "aspect": "Battery",
+    "mention_count": 1,
+    "positive_count": 1,
+    "neutral_count": 0,
+    "negative_count": 0,
+    "positive_percentage": 100.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 0.0,
+    "average_confidence": 0.86,
+    "overall": "Positive"
+   },
+   {
+    "aspect": "Camera",
+    "mention_count": 1,
+    "positive_count": 1,
+    "neutral_count": 0,
+    "negative_count": 0,
+    "positive_percentage": 100.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 0.0,
+    "average_confidence": 0.86,
+    "overall": "Positive"
+   },
+   {
+    "aspect": "Display",
+    "mention_count": 1,
+    "positive_count": 1,
+    "neutral_count": 0,
+    "negative_count": 0,
+    "positive_percentage": 100.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 0.0,
+    "average_confidence": 0.75,
+    "overall": "Positive"
+   },
+   {
+    "aspect": "Performance",
+    "mention_count": 1,
+    "positive_count": 1,
+    "neutral_count": 0,
+    "negative_count": 0,
+    "positive_percentage": 100.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 0.0,
+    "average_confidence": 0.75,
+    "overall": "Positive"
+   },
+   {
+    "aspect": "Build Quality",
+    "mention_count": 1,
+    "positive_count": 1,
+    "neutral_count": 0,
+    "negative_count": 0,
+    "positive_percentage": 100.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 0.0,
+    "average_confidence": 0.75,
+    "overall": "Positive"
+   },
+   {
+    "aspect": "Design",
+    "mention_count": 1,
+    "positive_count": 1,
+    "neutral_count": 0,
+    "negative_count": 0,
+    "positive_percentage": 100.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 0.0,
+    "average_confidence": 0.75,
+    "overall": "Positive"
+   },
+   {
+    "aspect": "Delivery",
+    "mention_count": 1,
+    "positive_count": 1,
+    "neutral_count": 0,
+    "negative_count": 0,
+    "positive_percentage": 100.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 0.0,
+    "average_confidence": 0.75,
+    "overall": "Positive"
+   },
+   {
+    "aspect": "Price",
+    "mention_count": 1,
+    "positive_count": 1,
+    "neutral_count": 0,
+    "negative_count": 0,
+    "positive_percentage": 100.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 0.0,
+    "average_confidence": 0.86,
+    "overall": "Positive"
+   }
+  ],
+  "pros": [
+   {
+    "aspect": "Sound",
+    "percentage": 100.0,
+    "mention_count": 2,
+    "average_confidence": 0.805,
+    "quotes": [
+     "“Speaker loudness is impressive for phone speakers.” — review #7",
+     "“Sound quality during calls is crisp and clear.” — review #9"
+    ]
+   },
+   {
+    "aspect": "Battery",
+    "percentage": 100.0,
+    "mention_count": 1,
+    "average_confidence": 0.86,
+    "quotes": [
+     "“The battery life is excellent and easily lasts two full days of heavy use.” — review #1"
+    ]
+   },
+   {
+    "aspect": "Camera",
+    "percentage": 100.0,
+    "mention_count": 1,
+    "average_confidence": 0.86,
+    "quotes": [
+     "“Camera quality is brilliant, portraits come out sharp even at night.” — review #2"
+    ]
+   },
+   {
+    "aspect": "Price",
+    "percentage": 100.0,
+    "mention_count": 1,
+    "average_confidence": 0.86,
+    "quotes": [
+     "“Value for money is outstanding at this price point.” — review #8"
+    ]
+   },
+   {
+    "aspect": "Display",
+    "percentage": 100.0,
+    "mention_count": 1,
+    "average_confidence": 0.75,
+    "quotes": [
+     "“The display is gorgeous and bright enough to use under direct sunlight.” — review #3"
+    ]
+   },
+   {
+    "aspect": "Performance",
+    "percentage": 100.0,
+    "mention_count": 1,
+    "average_confidence": 0.75,
+    "quotes": [
+     "“Performance is smooth, gaming runs without a single stutter.” — review #4"
+    ]
+   },
+   {
+    "aspect": "Build Quality",
+    "percentage": 100.0,
+    "mention_count": 1,
+    "average_confidence": 0.75,
+    "quotes": [
+     "“Build quality feels premium and the phone looks stunning.” — review #5"
+    ]
+   },
+   {
+    "aspect": "Design",
+    "percentage": 100.0,
+    "mention_count": 1,
+    "average_confidence": 0.75,
+    "quotes": [
+     "“Build quality feels premium and the phone looks stunning.” — review #5"
+    ]
+   }
+  ],
+  "cons": [],
+  "most_discussed": [
+   {
+    "aspect": "Sound",
+    "percentage": 100.0,
+    "mention_count": 2,
+    "average_confidence": 0.805
+   },
+   {
+    "aspect": "Battery",
+    "percentage": 100.0,
+    "mention_count": 1,
+    "average_confidence": 0.86
+   },
+   {
+    "aspect": "Camera",
+    "percentage": 100.0,
+    "mention_count": 1,
+    "average_confidence": 0.86
+   },
+   {
+    "aspect": "Display",
+    "percentage": 100.0,
+    "mention_count": 1,
+    "average_confidence": 0.75
+   },
+   {
+    "aspect": "Performance",
+    "percentage": 100.0,
+    "mention_count": 1,
+    "average_confidence": 0.75
+   },
+   {
+    "aspect": "Build Quality",
+    "percentage": 100.0,
+    "mention_count": 1,
+    "average_confidence": 0.75
+   },
+   {
+    "aspect": "Design",
+    "percentage": 100.0,
+    "mention_count": 1,
+    "average_confidence": 0.75
+   },
+   {
+    "aspect": "Delivery",
+    "percentage": 100.0,
+    "mention_count": 1,
+    "average_confidence": 0.75
+   }
+  ],
+  "statistics": {
+   "reviews_analyzed": 10,
+   "duplicates_removed": 0,
+   "near_duplicates_detected": 1,
+   "invalid_reviews": 0,
+   "uncertain_reviews": 1,
+   "suspicious_reviews": 0,
+   "average_confidence": 0.7341,
+   "average_word_count": 9.9,
+   "aspect_mentions_total": 10,
+   "processing_ms": 41
+  },
+  "verdict": {
+   "overall_sentiment": "Strongly Positive",
+   "positive_percentage": 90.0,
+   "neutral_percentage": 0.0,
+   "negative_percentage": 10.0,
+   "statement": "Customer sentiment is strongly positive: 90.0% positive, 0.0% neutral and 10.0% negative across 10 analysed reviews (dataset quality 93/100). Customers most favour: Sound, Battery, Camera.",
+   "strongest_positive_aspects": [
+    "Sound",
+    "Battery",
+    "Camera"
+   ],
+   "main_negative_aspects": []
+  },
+  "trust": {
+   "score": 80.8,
+   "band": "High confidence",
+   "components": {
+    "validReviewPct": 90.0,
+    "suspiciousPct": 0.0,
+    "duplicatePct": 10.0,
+    "volumeScore": 31.6,
+    "qualityScore": 93.4
+   }
+  },
+  "emotions": [
+   {
+    "emotion": "Joy",
+    "count": 3
+   },
+   {
+    "emotion": "Love",
+    "count": 2
+   },
+   {
+    "emotion": "Anger",
+    "count": 0
+   },
+   {
+    "emotion": "Sadness",
+    "count": 0
+   },
+   {
+    "emotion": "Fear",
+    "count": 0
+   },
+   {
+    "emotion": "No explicit emotion",
+    "count": 5
+   }
+  ]
+ },
+ "results": [
+  {
+   "id": 1,
+   "original_text": "The battery life is excellent and easily lasts two full days of heavy use.",
+   "normalized_text": "The battery life is excellent and easily lasts two full days of heavy use.",
+   "word_count": 14,
+   "review_probability": 0.9087,
+   "not_review_probability": 0.0913,
+   "review_status": "VALID",
+   "relevance": 0.72,
+   "relevance_level": "HIGH",
+   "sentiment": "Positive",
+   "confidence": 0.8162,
+   "positive_probability": 0.8162,
+   "negative_probability": 0.0338,
+   "neutral_probability": 0.15,
+   "aspects": [
+    {
+     "category": "Battery",
+     "sentiment": "Positive",
+     "confidence": 0.86
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "excellent",
+    "life",
+    "battery life",
+    "heavy use",
+    "use",
+    "full"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 2,
+   "original_text": "Camera quality is brilliant, portraits come out sharp even at night.",
+   "normalized_text": "Camera quality is brilliant, portraits come out sharp even at night.",
+   "word_count": 11,
+   "review_probability": 0.8992,
+   "not_review_probability": 0.1008,
+   "review_status": "VALID",
+   "relevance": 0.718,
+   "relevance_level": "HIGH",
+   "sentiment": "Positive",
+   "confidence": 0.6511,
+   "positive_probability": 0.6511,
+   "negative_probability": 0.294,
+   "neutral_probability": 0.0549,
+   "aspects": [
+    {
+     "category": "Camera",
+     "sentiment": "Positive",
+     "confidence": 0.86
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "brilliant",
+    "sharp",
+    "even",
+    "night",
+    "come",
+    "sharp even"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 3,
+   "original_text": "The display is gorgeous and bright enough to use under direct sunlight.",
+   "normalized_text": "The display is gorgeous and bright enough to use under direct sunlight.",
+   "word_count": 12,
+   "review_probability": 0.808,
+   "not_review_probability": 0.192,
+   "review_status": "VALID",
+   "relevance": 0.555,
+   "relevance_level": "MEDIUM",
+   "sentiment": "Positive",
+   "confidence": 0.6099,
+   "positive_probability": 0.6099,
+   "negative_probability": 0.2683,
+   "neutral_probability": 0.1218,
+   "aspects": [
+    {
+     "category": "Display",
+     "sentiment": "Positive",
+     "confidence": 0.75
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "gorgeous",
+    "enough use",
+    "bright",
+    "direct sunlight",
+    "use",
+    "bright enough"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 4,
+   "original_text": "Performance is smooth, gaming runs without a single stutter.",
+   "normalized_text": "Performance is smooth, gaming runs without a single stutter.",
+   "word_count": 9,
+   "review_probability": 0.9137,
+   "not_review_probability": 0.0863,
+   "review_status": "VALID",
+   "relevance": 0.57,
+   "relevance_level": "MEDIUM",
+   "sentiment": "Positive",
+   "confidence": 0.5924,
+   "positive_probability": 0.5924,
+   "negative_probability": 0.2894,
+   "neutral_probability": 0.1182,
+   "aspects": [
+    {
+     "category": "Performance",
+     "sentiment": "Positive",
+     "confidence": 0.75
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "smooth",
+    "stutter",
+    "performance",
+    "without",
+    "single",
+    "run without"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 5,
+   "original_text": "Build quality feels premium and the phone looks stunning.",
+   "normalized_text": "Build quality feels premium and the phone looks stunning.",
+   "word_count": 9,
+   "review_probability": 0.9659,
+   "not_review_probability": 0.0341,
+   "review_status": "VALID",
+   "relevance": 0.862,
+   "relevance_level": "HIGH",
+   "sentiment": "Positive",
+   "confidence": 0.918,
+   "positive_probability": 0.918,
+   "negative_probability": 0.046,
+   "neutral_probability": 0.036,
+   "aspects": [
+    {
+     "category": "Build Quality",
+     "sentiment": "Positive",
+     "confidence": 0.75
+    },
+    {
+     "category": "Design",
+     "sentiment": "Positive",
+     "confidence": 0.75
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "stun",
+    "quality feel",
+    "premium",
+    "phone look",
+    "build",
+    "build quality"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 6,
+   "original_text": "Delivery was fast, arrived a day earlier than expected.",
+   "normalized_text": "Delivery was fast, arrived a day earlier than expected.",
+   "word_count": 9,
+   "review_probability": 0.9276,
+   "not_review_probability": 0.0724,
+   "review_status": "VALID",
+   "relevance": 0.722,
+   "relevance_level": "HIGH",
+   "sentiment": "Positive",
+   "confidence": 0.8698,
+   "positive_probability": 0.8698,
+   "negative_probability": 0.0357,
+   "neutral_probability": 0.0945,
+   "aspects": [
+    {
+     "category": "Delivery",
+     "sentiment": "Positive",
+     "confidence": 0.75
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "earlier",
+    "fast",
+    "earlier expect",
+    "arrive day",
+    "day earlier",
+    "expect"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 7,
+   "original_text": "Speaker loudness is impressive for phone speakers.",
+   "normalized_text": "Speaker loudness is impressive for phone speakers.",
+   "word_count": 7,
+   "review_probability": 0.8374,
+   "not_review_probability": 0.1626,
+   "review_status": "VALID",
+   "relevance": 0.709,
+   "relevance_level": "HIGH",
+   "sentiment": "Positive",
+   "confidence": 0.7131,
+   "positive_probability": 0.7131,
+   "negative_probability": 0.234,
+   "neutral_probability": 0.053,
+   "aspects": [
+    {
+     "category": "Sound",
+     "sentiment": "Positive",
+     "confidence": 0.86
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "impressive",
+    "loudness",
+    "phone",
+    "speaker",
+    "phone speaker"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 8,
+   "original_text": "Value for money is outstanding at this price point.",
+   "normalized_text": "Value for money is outstanding at this price point.",
+   "word_count": 9,
+   "review_probability": 0.7669,
+   "not_review_probability": 0.2331,
+   "review_status": "UNCERTAIN",
+   "relevance": 0.698,
+   "relevance_level": "MEDIUM",
+   "sentiment": "Positive",
+   "confidence": 0.8714,
+   "positive_probability": 0.8714,
+   "negative_probability": 0.0225,
+   "neutral_probability": 0.1061,
+   "aspects": [
+    {
+     "category": "Price",
+     "sentiment": "Positive",
+     "confidence": 0.86
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "outstanding",
+    "value money",
+    "outstanding price",
+    "value",
+    "price",
+    "price point"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 9,
+   "original_text": "Sound quality during calls is crisp and clear.",
+   "normalized_text": "Sound quality during calls is crisp and clear.",
+   "word_count": 8,
+   "review_probability": 0.8692,
+   "not_review_probability": 0.1308,
+   "review_status": "VALID",
+   "relevance": 0.714,
+   "relevance_level": "HIGH",
+   "sentiment": "Negative",
+   "confidence": 0.4123,
+   "positive_probability": 0.3155,
+   "negative_probability": 0.4123,
+   "neutral_probability": 0.2722,
+   "aspects": [
+    {
+     "category": "Sound",
+     "sentiment": "Positive",
+     "confidence": 0.75
+    }
+   ],
+   "suspicion_score": 15,
+   "suspicious": false,
+   "suspicion_reasons": [
+    "near-duplicate of another review"
+   ],
+   "contributing_terms": [
+    "call",
+    "clear",
+    "sound quality",
+    "quality",
+    "crisp",
+    "crisp clear"
+   ],
+   "duplicate": false,
+   "near_duplicate": true,
+   "duplicate_of": 5
+  },
+  {
+   "id": 10,
+   "original_text": "Overall this is the best phone I have owned in years.",
+   "normalized_text": "Overall this is the best phone I have owned in years.",
+   "word_count": 11,
+   "review_probability": 0.9442,
+   "not_review_probability": 0.0558,
+   "review_status": "VALID",
+   "relevance": 0.592,
+   "relevance_level": "MEDIUM",
+   "sentiment": "Positive",
+   "confidence": 0.8867,
+   "positive_probability": 0.8867,
+   "negative_probability": 0.0228,
+   "neutral_probability": 0.0904,
+   "aspects": [],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "best",
+    "overall",
+    "best phone",
+    "year",
+    "own year",
+    "phone"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  }
+ ]
+}

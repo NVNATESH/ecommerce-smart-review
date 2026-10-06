@@ -8,6 +8,7 @@ from config import MAX_PASTED_TEXT_LENGTH
 
 class AnalyzeTextRequest(BaseModel):
     text: str = Field(..., description="Raw pasted reviews, one per line or paragraph.")
+    product_name: str | None = Field(None, max_length=80, description="Optional product name — saves the analysis as/into this product.")
 
     @field_validator("text")
     @classmethod

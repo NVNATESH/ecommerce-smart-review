@@ -6,8 +6,9 @@ import logging
 
 from fastapi import APIRouter, Depends
 
-from api.dependencies import get_pipeline, get_store
+from api.dependencies import get_pipeline, get_product_store, get_store
 from api.errors import AnalysisNotFoundError, InputValidationError, ModelNotLoadedError
+from api.readiness import wait_until_ready
 from ml.model_manager import ModelManager
 from schemas.analysis import AnalysisResponse, AnalysisStatusResponse, AnalysisSummary
 from schemas.review import ReviewResult
@@ -24,19 +25,35 @@ def analyze_text(
     request: AnalyzeTextRequest,
     pipeline: AnalysisPipeline = Depends(get_pipeline),
     store: AnalysisStore = Depends(get_store),
+    products: ProductStore = Depends(get_product_store),
 ):
-    """Synchronous analysis of pasted reviews (small inputs)."""
+    """Synchronous analysis of pasted reviews (small inputs).
+    With product_name: reviews are appended to that stored product and the
+    combined dataset is re-analysed."""
     reviews = parse_pasted_text(request.text)
+    wait_until_ready()  # first request waits for background NLP warm-up
     analysis_id = store.create(source="text")
-    logger.info("Text analysis %s started with %d segments", analysis_id, len(reviews))
+    product_id = None
+    combined = reviews
+    if request.product_name and request.product_name.strip():
+        product_id = products.find_or_create(request.product_name.strip())
+        combined = products.append_reviews(product_id, reviews)
+    logger.info("Text analysis %s started with %d segments", analysis_id, len(combined))
     try:
-        result = pipeline.run(analysis_id, reviews, source="text", store=store)
+        result = pipeline.run(analysis_id, combined, source="text", store=store)
     except InputValidationError:
         store.set_failed(analysis_id, "INVALID_INPUT", "Input validation failed.")
         raise
     except ValueError as exc:
         store.set_failed(analysis_id, "INVALID_INPUT", str(exc))
         raise InputValidationError("INVALID_INPUT", str(exc)) from exc
+    if product_id:
+        summary = store.get(analysis_id)
+        results = store.get_reviews(analysis_id)
+        products.save_analysis(product_id, analysis_id, summary, results)
+        store.ingest(product_id, {**summary, "analysis_id": product_id}, results)
+        result["product_id"] = product_id
+        result["product_name"] = request.product_name.strip()
     return AnalysisResponse(**{**result, "reviews": result["reviews"]})
 
 

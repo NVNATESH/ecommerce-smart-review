@@ -34,6 +34,40 @@ from nlp.tokenizer import is_negator, tokenize_words
 
 _PUNCT_TABLE = str.maketrans("", "", string.punctuation.replace("'", ""))
 
+# Emoji sentiment signals: weighted polarity counts computed during
+# preprocessing so reviews that express feeling through emojis keep that
+# signal (applied as a small, documented nudge at the decision layer).
+EMOJI_POS_WEIGHTS = {
+    "\U0001F60D": 2,  # heart-eyes
+    "\u2764\uFE0F": 2,  # red heart
+    "\u2764": 2,  # bare heart
+    "\U0001F525": 1,  # fire
+    "\U0001F60A": 1,  # smiling eyes
+    "\U0001F642": 1,  # slight smile
+    "\U0001F604": 1,  # smile
+    "\U0001F44D": 2,  # thumbs up
+    "\U0001F31F": 1,  # glowing star
+    "\u2B50": 1,  # star
+    "\U0001F973": 1,  # party face
+}
+EMOJI_NEG_WEIGHTS = {
+    "\U0001F621": 3,  # enraged face
+    "\U0001F44E": 2,  # thumbs down
+    "\U0001F62D": 2,  # loudly crying
+    "\U0001F614": 1,  # pensive
+    "\U0001F620": 2,  # angry
+    "\U0001F4A9": 2,  # pile of poo
+    "\U0001F494": 2,  # broken heart
+    "\U0001F622": 1,  # crying
+}
+
+
+def emoji_signals(text: str) -> tuple[int, int]:
+    """Weighted positive/negative emoji counts for one text (occurrence-based)."""
+    pos = sum(text.count(e) * w for e, w in EMOJI_POS_WEIGHTS.items())
+    neg = sum(text.count(e) * w for e, w in EMOJI_NEG_WEIGHTS.items())
+    return pos, neg
+
 try:
     from nltk.corpus import stopwords as _nltk_stopwords
 
@@ -67,6 +101,16 @@ except Exception:  # pragma: no cover
         return token
 
 
+from functools import lru_cache
+
+
+@lru_cache(maxsize=200_000)
+def _lemmatize_cached(token: str) -> str:
+    """Memoised lemmatisation — reviews reuse the same words heavily, so this
+    turns repeated WordNet lookups into dictionary hits after the first pass."""
+    return _lemmatize(token)
+
+
 @dataclass
 class PreprocessedText:
     original_text: str
@@ -75,6 +119,8 @@ class PreprocessedText:
     tokens: list[str]
     emojis: list[str] = field(default_factory=list)
     word_count: int = 0
+    emoji_pos: int = 0
+    emoji_neg: int = 0
 
     @property
     def alphabetic_ratio(self) -> float:
@@ -101,6 +147,7 @@ class TextPreprocessor:
     def preprocess(self, text: str) -> PreprocessedText:
         original = text.strip()
         emojis = EMOJI_RE.findall(original)
+        emoji_pos, emoji_neg = emoji_signals(original)
 
         # 1) Structural cleaning -------------------------------------------------
         cleaned = HTML_TAG_RE.sub(" ", original)
@@ -161,7 +208,7 @@ class TextPreprocessor:
                 continue
             if base.lower() in exaggerated_collapsed:
                 base = re.sub(r"([a-zA-Z])\1+", r"\1", base)
-            lemma = _lemmatize(base)
+            lemma = _lemmatize_cached(base)
             if negate_next:
                 model_tokens.append(f"not_{lemma}")
                 negate_next = False
@@ -177,6 +224,8 @@ class TextPreprocessor:
             tokens=model_tokens,
             emojis=emojis,
             word_count=len([t for t in normalized.split() if any(c.isalnum() for c in t)]),
+            emoji_pos=emoji_pos,
+            emoji_neg=emoji_neg,
         )
 
     def preprocess_batch(self, texts: list[str]) -> list[PreprocessedText]:

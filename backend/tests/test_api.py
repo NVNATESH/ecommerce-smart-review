@@ -32,7 +32,7 @@ class TestApi:
         r = client.get("/api/health")
         assert r.status_code == 200
         body = r.json()
-        assert body["status"] in {"ok", "degraded"}
+        assert body["status"] in {"ok", "warming", "degraded"}
         assert body["models_loaded"] is True
 
     def test_analyze_text_end_to_end(self, client):

@@ -91,11 +91,35 @@ def _pick(aspects: list, polarity: str) -> list[ProsConsItem]:
     ]
 
 
-def build_pros_cons(aspects: list) -> tuple[list[ProsConsItem], list[ProsConsItem]]:
+def _evidence_quotes(aspect_name: str, sentiment_label: str, reviews: list) -> list[str]:
+    """Up to 2 real review quotes supporting one pro/con aspect — strongest
+    confidence first, VALID preferred, so every claim shows its evidence."""
+    matches = [
+        r for r in reviews
+        if any(m.category == aspect_name and m.sentiment.value == sentiment_label for m in r.aspects)
+    ]
+    matches.sort(key=lambda r: (r.review_status.value == "VALID", r.confidence), reverse=True)
+    out = []
+    for r in matches[:2]:
+        q = r.original_text if len(r.original_text) <= 140 else r.original_text[:137] + "..."
+        entry = f"\u201c{q}\u201d \u2014 review #{r.id}"
+        if entry not in out:
+            out.append(entry)
+    return out
+
+
+def build_pros_cons(aspects: list, reviews: list | None = None) -> tuple[list[ProsConsItem], list[ProsConsItem]]:
     """Every aspect that leans positive becomes a pro entry, every aspect
     that leans negative a con entry (ranked strongest first). Balanced
-    aspects appear in neither list."""
-    return _pick(aspects, "positive"), _pick(aspects, "negative")
+    aspects appear in neither list. Each entry carries up to 2 real review
+    quotes as evidence."""
+    pos_items, neg_items = _pick(aspects, "positive"), _pick(aspects, "negative")
+    if reviews:
+        for item in pos_items:
+            item.quotes = _evidence_quotes(item.aspect, "Positive", reviews)
+        for item in neg_items:
+            item.quotes = _evidence_quotes(item.aspect, "Negative", reviews)
+    return pos_items, neg_items
 
 
 def build_verdict(reviews: list[ReviewResult], aspects: list, quality_score: float) -> Verdict:

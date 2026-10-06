@@ -25,6 +25,7 @@ export default function AnalysisPage() {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const setAnalysis = useAnalysisStore((s) => s.setAnalysis);
   const router = useRouter();
+  const [productName, setProductName] = useState("");
 
   const handleResult = useCallback(
     (result: AnalysisResponse | string) => {
@@ -47,7 +48,7 @@ export default function AnalysisPage() {
     setProgress(10);
     setStage("Validating...");
     try {
-      const result = await analyzeText(text);
+      const result = await analyzeText(text, productName.trim() || undefined);
       setProgress(100);
       handleResult(result);
     } catch (e) {
@@ -69,7 +70,7 @@ export default function AnalysisPage() {
         const status = await uploadCSV(file, (pct) => {
           setStage("Uploading...");
           setProgress(Math.max(2, Math.round(pct * 0.1)));
-        });
+        }, productName.trim() || undefined);
         const poll = async () => {
           const s = await getAnalysisStatus(status.analysis_id);
           setProgress(s.progress);
@@ -142,6 +143,15 @@ export default function AnalysisPage() {
             />
             <div className="mt-3 flex items-center justify-between">
               <p className="text-xs text-slate-600">{text.trim() ? text.trim().split(/\n+/).length : 0} line(s) of input</p>
+              <input
+                value={productName}
+                onChange={(e) => setProductName(e.target.value)}
+                disabled={busy}
+                placeholder="Product name (optional — saves to My Products)"
+                aria-label="Product name"
+                maxLength={80}
+                className="w-56 rounded-xl border border-white/10 bg-black/20 px-3 py-2 text-xs text-slate-200 placeholder:text-slate-600 focus:border-accent-blue/50 focus:outline-none disabled:opacity-50"
+              />
               <button
                 onClick={analyzePasted}
                 disabled={busy || !text.trim()}

@@ -19,13 +19,18 @@ out/
 
 # Model artifacts (regenerate with training scripts)
 backend/models/*.pkl
+backend/models_backup_*/
+backend/models_staging/
 
 # Data & logs
 backend/data/raw/*
 !backend/data/raw/.gitkeep
 backend/data/processed/*
 !backend/data/processed/.gitkeep
-backend/logs/*.log*
+backend/data/real/processed/*.modeltext.txt
+backend/logs/*
+frontend/next.out
+frontend/tsconfig.tsbuildinfo
 
 # Testing / coverage
 .pytest_cache/

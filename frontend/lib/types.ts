@@ -67,6 +67,27 @@ export interface ProsConsItem {
   percentage: number;
   mention_count: number;
   average_confidence: number;
+  quotes: string[];
+}
+
+export interface TrustInfo {
+  score: number;
+  band: string;
+  components: Record<string, number>;
+}
+
+export interface EmotionCount {
+  emotion: string;
+  count: number;
+}
+
+export interface AskResponse {
+  question: string;
+  answer: string;
+  matched: number;
+  breakdown: { Positive: number; Negative: number; Neutral: number };
+  quotes: { id: number; text: string; sentiment: SentimentLabel; confidence: number }[];
+  analysis_id: string;
 }
 
 export interface QualityComponentScores {
@@ -154,6 +175,8 @@ export interface AnalysisSummary {
   most_discussed: ProsConsItem[];
   statistics: AnalysisStatistics;
   verdict: Verdict;
+  trust: TrustInfo | null;
+  emotions: EmotionCount[] | null;
 }
 
 export interface AnalysisResponse extends AnalysisSummary {
@@ -206,6 +229,39 @@ export interface ModelInfo {
   imbalance_handling: string | null;
   trained_at: string;
   model_version: string;
+}
+
+export interface ProductListItem {
+  id: string;
+  name: string;
+  created_at: string;
+  updated_at: string;
+  review_count: number;
+  analysis_id: string | null;
+  verdict?: string | null;
+  trust?: number | null;
+  quality?: number | null;
+}
+
+export interface CompareProduct {
+  id: string;
+  name: string;
+  verdict?: string | null;
+  trust?: number | null;
+  quality?: number | null;
+  positive_pct?: number | null;
+  negative_pct?: number | null;
+  review_count?: number | null;
+}
+
+export interface CompareResponse {
+  success: boolean;
+  products: CompareProduct[];
+  aspects: {
+    aspect: string;
+    ratings: Record<string, string>;
+    scores: Record<string, number>;
+  }[];
 }
 
 export interface ApiErrorBody {

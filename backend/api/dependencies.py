@@ -24,5 +24,19 @@ def get_pipeline() -> AnalysisPipeline:
     return AnalysisPipeline(get_model_manager())
 
 
+@lru_cache(maxsize=1)
+def get_ask_service() -> "AskService":
+    from services.ask_service import AskService
+
+    return AskService()
+
+
+@lru_cache(maxsize=1)
+def get_product_store() -> "ProductStore":
+    from services.product_store import ProductStore
+
+    return ProductStore()
+
+
 # CSV jobs run in background threads; a lock keeps store mutations safe.
 store_lock = threading.Lock()

@@ -1,0 +1,828 @@
+{
+ "id": "bb9cd69a8d83",
+ "name": "Xiaomi Redmi Note 13",
+ "created_at": "2026-10-06T07:30:11.682894+00:00",
+ "updated_at": "2026-10-06T07:30:11.727701+00:00",
+ "reviews": [
+  "Battery is terrible, barely survives half a day with light use.",
+  "The phone heats up badly within ten minutes of gaming.",
+  "Camera quality is disappointing, photos look grainy and washed out.",
+  "Performance lags constantly and apps crash without warning.",
+  "The speaker sounds tinny and crackles at high volume.",
+  "Charging is painfully slow, takes more than two hours.",
+  "Build quality feels cheap and the back panel creaks.",
+  "Overheating while charging makes it unusable in summer.",
+  "The microphone is weak, callers keep asking me to repeat.",
+  "Disappointed with the display, colours look dull and washed out."
+ ],
+ "analysis_id": "2fbd27aab5d0483d",
+ "summary": {
+  "analysis_id": "2fbd27aab5d0483d",
+  "created_at": "2026-10-06T07:30:11.684719+00:00",
+  "source": "csv",
+  "filename": null,
+  "detected_column": null,
+  "status": "completed",
+  "progress": 100,
+  "stage": "Completed",
+  "error": null,
+  "sentiment": {
+   "positive": 0,
+   "neutral": 0,
+   "negative": 10,
+   "mixed": 0,
+   "positive_percentage": 0.0,
+   "neutral_percentage": 0.0,
+   "negative_percentage": 100.0,
+   "mixed_percentage": 0.0
+  },
+  "confidence_histogram": {
+   "buckets": [
+    "0-50%",
+    "50-70%",
+    "70-85%",
+    "85-95%",
+    "95-100%"
+   ],
+   "counts": [
+    0,
+    2,
+    4,
+    3,
+    1
+   ]
+  },
+  "quality": {
+   "total_rows": 10,
+   "valid_reviews": 8,
+   "uncertain_reviews": 2,
+   "invalid_reviews": 0,
+   "exact_duplicates": 0,
+   "near_duplicates": 2,
+   "average_word_count": 9.4,
+   "opinion_density": 1.0,
+   "feature_density": 1.0,
+   "alphabetic_ratio": 0.97,
+   "gibberish_ratio": 0.0,
+   "excessive_symbol_ratio": 0.0,
+   "language_quality": 98.2,
+   "dataset_diversity": 0.819,
+   "quality_score": 87.1,
+   "dataset_decision": "ACCEPT",
+   "reasons": [
+    "20% of reviews are near-duplicates."
+   ],
+   "component_scores": {
+    "review_detection": 90.0,
+    "opinion_density": 100.0,
+    "feature_density": 100.0,
+    "average_length": 100.0,
+    "language_quality": 98.2,
+    "dataset_diversity": 100.0
+   }
+  },
+  "aspects": [
+   {
+    "aspect": "Heating",
+    "mention_count": 2,
+    "positive_count": 0,
+    "neutral_count": 0,
+    "negative_count": 2,
+    "positive_percentage": 0.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 100.0,
+    "average_confidence": 0.76,
+    "overall": "Negative"
+   },
+   {
+    "aspect": "Design",
+    "mention_count": 2,
+    "positive_count": 0,
+    "neutral_count": 0,
+    "negative_count": 2,
+    "positive_percentage": 0.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 100.0,
+    "average_confidence": 0.76,
+    "overall": "Negative"
+   },
+   {
+    "aspect": "Performance",
+    "mention_count": 2,
+    "positive_count": 0,
+    "neutral_count": 0,
+    "negative_count": 2,
+    "positive_percentage": 0.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 100.0,
+    "average_confidence": 0.76,
+    "overall": "Negative"
+   },
+   {
+    "aspect": "Charging",
+    "mention_count": 2,
+    "positive_count": 0,
+    "neutral_count": 0,
+    "negative_count": 2,
+    "positive_percentage": 0.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 100.0,
+    "average_confidence": 0.82,
+    "overall": "Negative"
+   },
+   {
+    "aspect": "Battery",
+    "mention_count": 1,
+    "positive_count": 0,
+    "neutral_count": 0,
+    "negative_count": 1,
+    "positive_percentage": 0.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 100.0,
+    "average_confidence": 0.88,
+    "overall": "Negative"
+   },
+   {
+    "aspect": "Camera",
+    "mention_count": 1,
+    "positive_count": 0,
+    "neutral_count": 0,
+    "negative_count": 1,
+    "positive_percentage": 0.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 100.0,
+    "average_confidence": 0.76,
+    "overall": "Negative"
+   },
+   {
+    "aspect": "Software",
+    "mention_count": 1,
+    "positive_count": 0,
+    "neutral_count": 0,
+    "negative_count": 1,
+    "positive_percentage": 0.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 100.0,
+    "average_confidence": 0.76,
+    "overall": "Negative"
+   },
+   {
+    "aspect": "Sound",
+    "mention_count": 1,
+    "positive_count": 0,
+    "neutral_count": 0,
+    "negative_count": 1,
+    "positive_percentage": 0.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 100.0,
+    "average_confidence": 0.76,
+    "overall": "Negative"
+   },
+   {
+    "aspect": "Price",
+    "mention_count": 1,
+    "positive_count": 0,
+    "neutral_count": 0,
+    "negative_count": 1,
+    "positive_percentage": 0.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 100.0,
+    "average_confidence": 0.76,
+    "overall": "Negative"
+   },
+   {
+    "aspect": "Build Quality",
+    "mention_count": 1,
+    "positive_count": 0,
+    "neutral_count": 0,
+    "negative_count": 1,
+    "positive_percentage": 0.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 100.0,
+    "average_confidence": 0.76,
+    "overall": "Negative"
+   },
+   {
+    "aspect": "Microphone",
+    "mention_count": 1,
+    "positive_count": 0,
+    "neutral_count": 0,
+    "negative_count": 1,
+    "positive_percentage": 0.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 100.0,
+    "average_confidence": 0.76,
+    "overall": "Negative"
+   },
+   {
+    "aspect": "Display",
+    "mention_count": 1,
+    "positive_count": 0,
+    "neutral_count": 0,
+    "negative_count": 1,
+    "positive_percentage": 0.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 100.0,
+    "average_confidence": 0.76,
+    "overall": "Negative"
+   }
+  ],
+  "pros": [],
+  "cons": [
+   {
+    "aspect": "Charging",
+    "percentage": 100.0,
+    "mention_count": 2,
+    "average_confidence": 0.82,
+    "quotes": [
+     "“Overheating while charging makes it unusable in summer.” — review #8",
+     "“Charging is painfully slow, takes more than two hours.” — review #6"
+    ]
+   },
+   {
+    "aspect": "Heating",
+    "percentage": 100.0,
+    "mention_count": 2,
+    "average_confidence": 0.76,
+    "quotes": [
+     "“Overheating while charging makes it unusable in summer.” — review #8",
+     "“The phone heats up badly within ten minutes of gaming.” — review #2"
+    ]
+   },
+   {
+    "aspect": "Design",
+    "percentage": 100.0,
+    "mention_count": 2,
+    "average_confidence": 0.76,
+    "quotes": [
+     "“Disappointed with the display, colours look dull and washed out.” — review #10",
+     "“Camera quality is disappointing, photos look grainy and washed out.” — review #3"
+    ]
+   },
+   {
+    "aspect": "Performance",
+    "percentage": 100.0,
+    "mention_count": 2,
+    "average_confidence": 0.76,
+    "quotes": [
+     "“Performance lags constantly and apps crash without warning.” — review #4",
+     "“Charging is painfully slow, takes more than two hours.” — review #6"
+    ]
+   },
+   {
+    "aspect": "Battery",
+    "percentage": 100.0,
+    "mention_count": 1,
+    "average_confidence": 0.88,
+    "quotes": [
+     "“Battery is terrible, barely survives half a day with light use.” — review #1"
+    ]
+   },
+   {
+    "aspect": "Camera",
+    "percentage": 100.0,
+    "mention_count": 1,
+    "average_confidence": 0.76,
+    "quotes": [
+     "“Camera quality is disappointing, photos look grainy and washed out.” — review #3"
+    ]
+   },
+   {
+    "aspect": "Software",
+    "percentage": 100.0,
+    "mention_count": 1,
+    "average_confidence": 0.76,
+    "quotes": [
+     "“Performance lags constantly and apps crash without warning.” — review #4"
+    ]
+   },
+   {
+    "aspect": "Sound",
+    "percentage": 100.0,
+    "mention_count": 1,
+    "average_confidence": 0.76,
+    "quotes": [
+     "“The speaker sounds tinny and crackles at high volume.” — review #5"
+    ]
+   }
+  ],
+  "most_discussed": [
+   {
+    "aspect": "Heating",
+    "percentage": 0.0,
+    "mention_count": 2,
+    "average_confidence": 0.76
+   },
+   {
+    "aspect": "Design",
+    "percentage": 0.0,
+    "mention_count": 2,
+    "average_confidence": 0.76
+   },
+   {
+    "aspect": "Performance",
+    "percentage": 0.0,
+    "mention_count": 2,
+    "average_confidence": 0.76
+   },
+   {
+    "aspect": "Charging",
+    "percentage": 0.0,
+    "mention_count": 2,
+    "average_confidence": 0.82
+   },
+   {
+    "aspect": "Battery",
+    "percentage": 0.0,
+    "mention_count": 1,
+    "average_confidence": 0.88
+   },
+   {
+    "aspect": "Camera",
+    "percentage": 0.0,
+    "mention_count": 1,
+    "average_confidence": 0.76
+   },
+   {
+    "aspect": "Software",
+    "percentage": 0.0,
+    "mention_count": 1,
+    "average_confidence": 0.76
+   },
+   {
+    "aspect": "Sound",
+    "percentage": 0.0,
+    "mention_count": 1,
+    "average_confidence": 0.76
+   }
+  ],
+  "statistics": {
+   "reviews_analyzed": 10,
+   "duplicates_removed": 0,
+   "near_duplicates_detected": 2,
+   "invalid_reviews": 0,
+   "uncertain_reviews": 2,
+   "suspicious_reviews": 0,
+   "average_confidence": 0.8081,
+   "average_word_count": 9.4,
+   "aspect_mentions_total": 16,
+   "processing_ms": 41
+  },
+  "verdict": {
+   "overall_sentiment": "Strongly Negative",
+   "positive_percentage": 0.0,
+   "neutral_percentage": 0.0,
+   "negative_percentage": 100.0,
+   "statement": "Customer sentiment is strongly negative: 0.0% positive, 0.0% neutral and 100.0% negative across 10 analysed reviews (dataset quality 87/100). Main complaints concern: Charging, Heating, Design.",
+   "strongest_positive_aspects": [],
+   "main_negative_aspects": [
+    "Charging",
+    "Heating",
+    "Design"
+   ]
+  },
+  "trust": {
+   "score": 75.3,
+   "band": "Moderate confidence",
+   "components": {
+    "validReviewPct": 80.0,
+    "suspiciousPct": 0.0,
+    "duplicatePct": 20.0,
+    "volumeScore": 31.6,
+    "qualityScore": 87.1
+   }
+  },
+  "emotions": [
+   {
+    "emotion": "Joy",
+    "count": 0
+   },
+   {
+    "emotion": "Love",
+    "count": 0
+   },
+   {
+    "emotion": "Anger",
+    "count": 0
+   },
+   {
+    "emotion": "Sadness",
+    "count": 2
+   },
+   {
+    "emotion": "Fear",
+    "count": 0
+   },
+   {
+    "emotion": "No explicit emotion",
+    "count": 8
+   }
+  ]
+ },
+ "results": [
+  {
+   "id": 1,
+   "original_text": "Battery is terrible, barely survives half a day with light use.",
+   "normalized_text": "Battery is terrible, barely survives half a day with light use.",
+   "word_count": 11,
+   "review_probability": 0.9682,
+   "not_review_probability": 0.0318,
+   "review_status": "VALID",
+   "relevance": 0.729,
+   "relevance_level": "HIGH",
+   "sentiment": "Negative",
+   "confidence": 0.9822,
+   "positive_probability": 0.0012,
+   "negative_probability": 0.9822,
+   "neutral_probability": 0.0165,
+   "aspects": [
+    {
+     "category": "Battery",
+     "sentiment": "Negative",
+     "confidence": 0.88
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "terrible",
+    "barely",
+    "light use",
+    "day light",
+    "half",
+    "survive"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 2,
+   "original_text": "The phone heats up badly within ten minutes of gaming.",
+   "normalized_text": "The phone heats up badly within ten minutes of gaming.",
+   "word_count": 10,
+   "review_probability": 0.9611,
+   "not_review_probability": 0.0389,
+   "review_status": "VALID",
+   "relevance": 0.727,
+   "relevance_level": "HIGH",
+   "sentiment": "Negative",
+   "confidence": 0.8494,
+   "positive_probability": 0.0082,
+   "negative_probability": 0.8494,
+   "neutral_probability": 0.1424,
+   "aspects": [
+    {
+     "category": "Heating",
+     "sentiment": "Negative",
+     "confidence": 0.76
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "badly",
+    "within",
+    "minute",
+    "phone heat",
+    "ten",
+    "phone"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 3,
+   "original_text": "Camera quality is disappointing, photos look grainy and washed out.",
+   "normalized_text": "Camera quality is disappointing, photos look grainy and washed out.",
+   "word_count": 10,
+   "review_probability": 0.9416,
+   "not_review_probability": 0.0584,
+   "review_status": "VALID",
+   "relevance": 0.858,
+   "relevance_level": "HIGH",
+   "sentiment": "Negative",
+   "confidence": 0.8229,
+   "positive_probability": 0.0042,
+   "negative_probability": 0.8229,
+   "neutral_probability": 0.1729,
+   "aspects": [
+    {
+     "category": "Camera",
+     "sentiment": "Negative",
+     "confidence": 0.76
+    },
+    {
+     "category": "Design",
+     "sentiment": "Negative",
+     "confidence": 0.76
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "disappoint",
+    "grainy",
+    "quality disappoint",
+    "photo",
+    "quality",
+    "look"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 4,
+   "original_text": "Performance lags constantly and apps crash without warning.",
+   "normalized_text": "Performance lags constantly and apps crash without warning.",
+   "word_count": 8,
+   "review_probability": 0.8628,
+   "not_review_probability": 0.1372,
+   "review_status": "VALID",
+   "relevance": 0.696,
+   "relevance_level": "MEDIUM",
+   "sentiment": "Negative",
+   "confidence": 0.8712,
+   "positive_probability": 0.0447,
+   "negative_probability": 0.8712,
+   "neutral_probability": 0.084,
+   "aspects": [
+    {
+     "category": "Performance",
+     "sentiment": "Negative",
+     "confidence": 0.76
+    },
+    {
+     "category": "Software",
+     "sentiment": "Negative",
+     "confidence": 0.76
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "constantly",
+    "crash",
+    "warn",
+    "performance",
+    "without warn",
+    "lag"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 5,
+   "original_text": "The speaker sounds tinny and crackles at high volume.",
+   "normalized_text": "The speaker sounds tinny and crackles at high volume.",
+   "word_count": 9,
+   "review_probability": 0.7762,
+   "not_review_probability": 0.2238,
+   "review_status": "UNCERTAIN",
+   "relevance": 0.7,
+   "relevance_level": "HIGH",
+   "sentiment": "Negative",
+   "confidence": 0.5244,
+   "positive_probability": 0.0351,
+   "negative_probability": 0.5244,
+   "neutral_probability": 0.4406,
+   "aspects": [
+    {
+     "category": "Sound",
+     "sentiment": "Negative",
+     "confidence": 0.76
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "crackle",
+    "high volume",
+    "sound tinny",
+    "tinny",
+    "volume",
+    "speaker"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 6,
+   "original_text": "Charging is painfully slow, takes more than two hours.",
+   "normalized_text": "Charging is painfully slow, takes more than two hours.",
+   "word_count": 9,
+   "review_probability": 0.8896,
+   "not_review_probability": 0.1104,
+   "review_status": "VALID",
+   "relevance": 0.7,
+   "relevance_level": "HIGH",
+   "sentiment": "Negative",
+   "confidence": 0.7467,
+   "positive_probability": 0.0267,
+   "negative_probability": 0.7467,
+   "neutral_probability": 0.2266,
+   "aspects": [
+    {
+     "category": "Charging",
+     "sentiment": "Negative",
+     "confidence": 0.76
+    },
+    {
+     "category": "Performance",
+     "sentiment": "Negative",
+     "confidence": 0.76
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "two hour",
+    "take two",
+    "slow",
+    "charge",
+    "two",
+    "hour"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 7,
+   "original_text": "Build quality feels cheap and the back panel creaks.",
+   "normalized_text": "Build quality feels cheap and the back panel creaks.",
+   "word_count": 9,
+   "review_probability": 0.8501,
+   "not_review_probability": 0.1499,
+   "review_status": "VALID",
+   "relevance": 0.844,
+   "relevance_level": "HIGH",
+   "sentiment": "Negative",
+   "confidence": 0.5953,
+   "positive_probability": 0.114,
+   "negative_probability": 0.5953,
+   "neutral_probability": 0.2906,
+   "aspects": [
+    {
+     "category": "Price",
+     "sentiment": "Negative",
+     "confidence": 0.76
+    },
+    {
+     "category": "Build Quality",
+     "sentiment": "Negative",
+     "confidence": 0.76
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "cheap",
+    "build quality",
+    "build",
+    "quality feel",
+    "feel",
+    "panel"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 8,
+   "original_text": "Overheating while charging makes it unusable in summer.",
+   "normalized_text": "Overheating while charging makes it unusable in summer.",
+   "word_count": 8,
+   "review_probability": 0.9577,
+   "not_review_probability": 0.0423,
+   "review_status": "VALID",
+   "relevance": 0.71,
+   "relevance_level": "HIGH",
+   "sentiment": "Negative",
+   "confidence": 0.9097,
+   "positive_probability": 0.0307,
+   "negative_probability": 0.9097,
+   "neutral_probability": 0.0596,
+   "aspects": [
+    {
+     "category": "Heating",
+     "sentiment": "Negative",
+     "confidence": 0.76
+    },
+    {
+     "category": "Charging",
+     "sentiment": "Negative",
+     "confidence": 0.88
+    }
+   ],
+   "suspicion_score": 15,
+   "suspicious": false,
+   "suspicion_reasons": [
+    "near-duplicate of another review"
+   ],
+   "contributing_terms": [
+    "unusable",
+    "summer",
+    "charge",
+    "overheat",
+    "charge make",
+    "make unusable"
+   ],
+   "duplicate": false,
+   "near_duplicate": true,
+   "duplicate_of": 6
+  },
+  {
+   "id": 9,
+   "original_text": "The microphone is weak, callers keep asking me to repeat.",
+   "normalized_text": "The microphone is weak, callers keep asking me to repeat.",
+   "word_count": 10,
+   "review_probability": 0.6722,
+   "not_review_probability": 0.3278,
+   "review_status": "UNCERTAIN",
+   "relevance": 0.534,
+   "relevance_level": "MEDIUM",
+   "sentiment": "Negative",
+   "confidence": 0.8409,
+   "positive_probability": 0.0211,
+   "negative_probability": 0.8409,
+   "neutral_probability": 0.1379,
+   "aspects": [
+    {
+     "category": "Microphone",
+     "sentiment": "Negative",
+     "confidence": 0.76
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "weak",
+    "microphone",
+    "repeat",
+    "keep",
+    "caller",
+    "ask repeat"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 10,
+   "original_text": "Disappointed with the display, colours look dull and washed out.",
+   "normalized_text": "Disappointed with the display, colours look dull and washed out.",
+   "word_count": 10,
+   "review_probability": 0.9248,
+   "not_review_probability": 0.0752,
+   "review_status": "VALID",
+   "relevance": 0.705,
+   "relevance_level": "HIGH",
+   "sentiment": "Negative",
+   "confidence": 0.9379,
+   "positive_probability": 0.0137,
+   "negative_probability": 0.9379,
+   "neutral_probability": 0.0484,
+   "aspects": [
+    {
+     "category": "Display",
+     "sentiment": "Negative",
+     "confidence": 0.76
+    },
+    {
+     "category": "Design",
+     "sentiment": "Negative",
+     "confidence": 0.76
+    }
+   ],
+   "suspicion_score": 15,
+   "suspicious": false,
+   "suspicion_reasons": [
+    "near-duplicate of another review"
+   ],
+   "contributing_terms": [
+    "disappoint",
+    "dull",
+    "colour",
+    "display",
+    "look",
+    "wash"
+   ],
+   "duplicate": false,
+   "near_duplicate": true,
+   "duplicate_of": 3
+  }
+ ]
+}

@@ -4,9 +4,28 @@ import type {
   AnalysisStatus,
   AnalysisSummary,
   ApiErrorBody,
+  AskResponse,
+  CompareProduct,
+  CompareResponse,
   ModelInfo,
+  ProductListItem,
   ReviewPage,
 } from "./types";
+
+export type { ProductListItem, CompareProduct, CompareResponse } from "./types";
+
+export type { AskResponse };
+
+export interface ProductDetail {
+  success: boolean;
+  id: string;
+  name: string;
+  created_at: string;
+  updated_at: string;
+  review_count: number;
+  analysis_id: string | null;
+  summary: AnalysisSummary | null;
+}
 
 export const API_URL =
   process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
@@ -57,10 +76,10 @@ async function request<T>(path: string, init?: RequestInit, timeoutMs = 120_000)
   }
 }
 
-export function analyzeText(text: string, signal?: AbortSignal): Promise<AnalysisResponse> {
+export function analyzeText(text: string, productName?: string, signal?: AbortSignal): Promise<AnalysisResponse> {
   return request<AnalysisResponse>("/analyze/text", {
     method: "POST",
-    body: JSON.stringify({ text }),
+    body: JSON.stringify({ text, ...(productName ? { product_name: productName } : {}) }),
     signal,
   });
 }
@@ -68,6 +87,7 @@ export function analyzeText(text: string, signal?: AbortSignal): Promise<Analysi
 export function uploadCSV(
   file: File,
   onProgress?: (pct: number) => void,
+  productName?: string,
 ): Promise<AnalysisStatus> {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
@@ -90,6 +110,7 @@ export function uploadCSV(
     xhr.onerror = () => reject(new ApiRequestError("NETWORK_ERROR", "Could not reach the server.", 0));
     const form = new FormData();
     form.append("file", file);
+    if (productName) form.append("product_name", productName);
     xhr.send(form);
   });
 }
@@ -125,6 +146,38 @@ export function getReviews(
 
 export function getModels(signal?: AbortSignal): Promise<{ models: ModelInfo[] }> {
   return request<{ models: ModelInfo[] }>("/models", { signal });
+}
+
+export function askReview(analysisId: string, q: string, signal?: AbortSignal): Promise<AskResponse> {
+  return request<AskResponse>(`/ask/${analysisId}?q=${encodeURIComponent(q)}`, { signal }, 30000);
+}
+
+export function listProducts(signal?: AbortSignal): Promise<{ success: boolean; products: ProductListItem[] }> {
+  return request(`/products`, { signal });
+}
+
+export function getProduct(pid: string, signal?: AbortSignal): Promise<ProductDetail> {
+  return request<ProductDetail>(`/products/${pid}`, { signal });
+}
+
+export function addProductReviews(
+  pid: string,
+  texts: string[],
+  signal?: AbortSignal,
+): Promise<{ success: boolean; analysis_id: string; product_analysis_id: string; review_count: number; summary: AnalysisSummary }> {
+  return request(`/products/${pid}/reviews`, {
+    method: "POST",
+    body: JSON.stringify({ texts }),
+    signal,
+  });
+}
+
+export function deleteProduct(pid: string, signal?: AbortSignal): Promise<{ success: boolean }> {
+  return request(`/products/${pid}`, { method: "DELETE", signal });
+}
+
+export function compareProducts(ids: string[], signal?: AbortSignal): Promise<CompareResponse> {
+  return request<CompareResponse>(`/compare?ids=${ids.map(encodeURIComponent).join(",")}`, { signal }, 60000);
 }
 
 export function exportUrl(analysisId: string, format: string): string {

@@ -41,6 +41,12 @@ class AnalysisNotFoundError(AppError):
     status_code = status.HTTP_404_NOT_FOUND
 
 
+class ProductNotFoundError(AppError):
+    def __init__(self, code: str = "PRODUCT_NOT_FOUND",
+                 message: str = "Product not found.", details: dict | None = None):
+        super().__init__(code, message, details, status_code=status.HTTP_404_NOT_FOUND)
+
+
 class ModelNotLoadedError(AppError):
     status_code = status.HTTP_503_SERVICE_UNAVAILABLE
 

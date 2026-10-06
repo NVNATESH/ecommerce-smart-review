@@ -7,6 +7,7 @@ AnalysisStore (in-memory for v1, structured so a database can replace it).
 from __future__ import annotations
 
 import logging
+import math
 import time
 import uuid
 from datetime import datetime, timezone
@@ -14,6 +15,7 @@ from datetime import datetime, timezone
 from api.errors import ModelNotLoadedError
 from ml.explainability import explain_prediction
 from ml.model_manager import ModelManager
+from nlp.emotions import detect_emotions
 from nlp.relevance import relevance_level, relevance_score
 from schemas.review import AspectMention, ReviewResult
 from services.aggregation_service import (
@@ -91,6 +93,22 @@ class AnalysisStore:
     def put_reviews(self, analysis_id: str, reviews: list[ReviewResult]) -> None:
         self._reviews[analysis_id] = reviews
 
+    def ingest(self, analysis_id: str, summary: dict, review_models: list[ReviewResult]) -> None:
+        """Register a completed analysis under a (possibly new) analysis_id —
+        used to pin product analyses under their stable product id."""
+        self._data[analysis_id] = {
+            **summary,
+            "analysis_id": analysis_id,
+            "status": "completed",
+            "progress": 100,
+            "stage": "Completed",
+        }
+        self._reviews[analysis_id] = review_models
+
+    def remove(self, analysis_id: str) -> None:
+        self._data.pop(analysis_id, None)
+        self._reviews.pop(analysis_id, None)
+
 
 class AnalysisPipeline:
     STAGES = [
@@ -117,6 +135,9 @@ class AnalysisPipeline:
         self.aspect_service = AspectService()
         self.duplicates = DuplicateDetector()
         self.suspicious = SuspiciousReviewDetector()
+        # TF-IDF feature names are fixed once the vectorizer is loaded; building
+        # them costs ~0.65 s, so compute them once here instead of per analysis.
+        self.feature_names = manager.sentiment_vectorizer.get_feature_names_out()
 
     def run(
         self,
@@ -162,15 +183,14 @@ class AnalysisPipeline:
             clause_analyses_per_review.append(clauses)
         sentiment_results = self.sentiment.score(
             [p.model_text for p in preprocessed], clause_analyses_per_review,
+            emoji_signals=[{"pos": p.emoji_pos, "neg": p.emoji_neg} for p in preprocessed],
         )
 
         stage(70, "Extracting aspects...")
         vectorizer = self.manager.sentiment_vectorizer
         model = self.manager.sentiment_model
         classes = self.sentiment.engine.classes
-        # Building feature names is expensive (large vocabulary); do it once
-        # per analysis, not once per review.
-        feature_names = vectorizer.get_feature_names_out()
+        feature_names = self.feature_names  # cached at pipeline construction
 
         reviews: list[ReviewResult] = []
         for i, p in enumerate(preprocessed):
@@ -236,9 +256,50 @@ class AnalysisPipeline:
             invalid_reviews=invalid_n,
         )
 
+        # Trust score — how much this dataset's verdict can be trusted
+        # (transparent weighted mix; components returned for the UI)
+        n_total = max(len(reviews), 1)
+        valid_pct = valid_n / n_total * 100
+        susp_pct = sum(1 for r in reviews if r.suspicious) / n_total * 100
+        dup_pct = (dup_summary["duplicates_removed"] + dup_summary["near_duplicates_detected"]) / n_total * 100
+        volume_score = min(100.0, 10.0 * math.sqrt(len(reviews)))
+        trust_score = round(
+            0.35 * valid_pct + 0.25 * (100 - susp_pct) + 0.20 * (100 - dup_pct)
+            + 0.20 * min(100.0, volume_score), 1)
+        trust_band = ("High confidence" if trust_score >= 80
+                      else "Moderate confidence" if trust_score >= 60 else "Low confidence")
+        trust = {
+            "score": trust_score,
+            "band": trust_band,
+            "components": {
+                "validReviewPct": round(valid_pct, 1),
+                "suspiciousPct": round(susp_pct, 1),
+                "duplicatePct": round(dup_pct, 1),
+                "volumeScore": round(min(100.0, volume_score), 1),
+                "qualityScore": quality.quality_score,
+            },
+        }
+
+        # Emotion mix (lexicon-based, dataset level)
+        emotion_counts = {e: 0 for e in ("Joy", "Love", "Anger", "Sadness", "Fear")}
+        no_emotion = 0
+        for r in reviews:
+            emos = detect_emotions(r.original_text)
+            hit = False
+            for e, present in emos.items():
+                if present:
+                    emotion_counts[e] += 1
+                    hit = True
+            if not hit:
+                no_emotion += 1
+        emotions_summary = [
+            {"emotion": e, "count": emotion_counts[e]}
+            for e in ("Joy", "Love", "Anger", "Sadness", "Fear")
+        ] + [{"emotion": "No explicit emotion", "count": no_emotion}]
+
         stage(90, "Generating dashboard...")
         aspects = self.aspect_service.aggregate(aspect_mentions)
-        pros, cons = build_pros_cons(aspects)
+        pros, cons = build_pros_cons(aspects, reviews)
         dist = build_distribution(reviews)
         verdict = build_verdict(reviews, aspects, quality.quality_score)
         processing_ms = int((time.perf_counter() - started) * 1000)
@@ -267,6 +328,8 @@ class AnalysisPipeline:
             ],
             "statistics": statistics.model_dump(),
             "verdict": verdict.model_dump(),
+            "trust": trust,
+            "emotions": emotions_summary,
         }
         store.put_reviews(analysis_id, reviews)
         stage(97, "Generating dashboard...")

@@ -7,32 +7,45 @@ import type { AnalysisSummary } from "./types";
 
 interface AnalysisState {
   analysisId: string | null;
+  productName: string | null;
   summary: AnalysisSummary | null;
   loading: boolean;
   error: string | null;
-  setAnalysis: (id: string, summary: AnalysisSummary | null) => void;
+  notFound: boolean;
+  setAnalysis: (id: string, summary: AnalysisSummary | null, productName?: string | null) => void;
   loadSummary: (id: string) => Promise<void>;
   reset: () => void;
 }
 
 export const useAnalysisStore = create<AnalysisState>((set) => ({
   analysisId: null,
+  productName: null,
   summary: null,
   loading: false,
   error: null,
-  setAnalysis: (analysisId, summary) => set({ analysisId, summary, error: null }),
+  notFound: false,
+  setAnalysis: (analysisId, summary, productName = null) =>
+    set({ analysisId, summary, productName, error: null, notFound: false }),
   loadSummary: async (id) => {
-    set({ loading: true, error: null });
+    set({ loading: true, error: null, notFound: false });
     try {
       const { getAnalysis } = await import("./api");
       const summary = await getAnalysis(id);
       set({ analysisId: id, summary, loading: false });
     } catch (e) {
-      set({
-        loading: false,
-        error: e instanceof Error ? e.message : "Failed to load analysis.",
-      });
+      const err = e as Error & { status?: number; code?: string };
+      // stale analysis id (server restarted / product deleted) -> clean slate
+      if (err.status === 404 || err.code === "ANALYSIS_NOT_FOUND") {
+        sessionStorage.removeItem("analysisId");
+        set({ analysisId: null, summary: null, loading: false, notFound: true, error: null });
+      } else {
+        set({
+          loading: false,
+          error: e instanceof Error ? e.message : "Failed to load analysis.",
+        });
+      }
     }
   },
-  reset: () => set({ analysisId: null, summary: null, error: null }),
+  reset: () =>
+    set({ analysisId: null, productName: null, summary: null, error: null, notFound: false }),
 }));

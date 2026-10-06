@@ -1,0 +1,1118 @@
+{
+ "id": "a7cc0f261ba5",
+ "name": "iPhone 15 Pro",
+ "created_at": "2026-10-06T07:30:12.031527+00:00",
+ "updated_at": "2026-10-06T07:30:12.127611+00:00",
+ "reviews": [
+  "The battery is amazing but the camera is disappointing for this price.",
+  "Love the display and the design, absolutely gorgeous device.",
+  "The speaker is fantastic and bass is surprisingly deep.",
+  "Performance is snappy but the phone gets warm during long gaming sessions.",
+  "Camera is superb in daylight, night mode still needs work.",
+  "Great value for money overall, battery easily lasts a day.",
+  "BEST BEST BEST BUY NOW!!!! LIMITED OFFER CLICK HERE!!!",
+  "The battery backup is amazing and lasts through heavy use.",
+  "It has 128GB storage and supports 5G networks in my area.",
+  "The package arrived yesterday, box was sealed properly.",
+  "Camera shutter lag is annoying but picture quality is decent.",
+  "😍😍😍 best purchase ever, totally love this phone!",
+  "Charging speed is impressive but the charger cable feels flimsy.",
+  "Performance is smooth for daily apps but stutters in heavy games.",
+  "The screen is bright and the sound is loud enough for videos.",
+  "Battery life is excellent.",
+  "The battery backup is excellent.",
+  "Tomorrow I have my DBMS exam so I cannot review it today."
+ ],
+ "analysis_id": "1e1e1ef1b9d745c5",
+ "summary": {
+  "analysis_id": "1e1e1ef1b9d745c5",
+  "created_at": "2026-10-06T07:30:12.034368+00:00",
+  "source": "csv",
+  "filename": null,
+  "detected_column": null,
+  "status": "completed",
+  "progress": 100,
+  "stage": "Completed",
+  "error": null,
+  "sentiment": {
+   "positive": 13,
+   "neutral": 2,
+   "negative": 0,
+   "mixed": 3,
+   "positive_percentage": 72.2,
+   "neutral_percentage": 11.1,
+   "negative_percentage": 0.0,
+   "mixed_percentage": 16.7
+  },
+  "confidence_histogram": {
+   "buckets": [
+    "0-50%",
+    "50-70%",
+    "70-85%",
+    "85-95%",
+    "95-100%"
+   ],
+   "counts": [
+    3,
+    5,
+    2,
+    1,
+    7
+   ]
+  },
+  "quality": {
+   "total_rows": 18,
+   "valid_reviews": 16,
+   "uncertain_reviews": 2,
+   "invalid_reviews": 0,
+   "exact_duplicates": 0,
+   "near_duplicates": 2,
+   "average_word_count": 9.5,
+   "opinion_density": 0.833,
+   "feature_density": 0.833,
+   "alphabetic_ratio": 0.956,
+   "gibberish_ratio": 0.0,
+   "excessive_symbol_ratio": 0.0,
+   "language_quality": 97.4,
+   "dataset_diversity": 0.663,
+   "quality_score": 92.6,
+   "dataset_decision": "ACCEPT",
+   "reasons": [
+    "11% of reviews are near-duplicates."
+   ],
+   "component_scores": {
+    "review_detection": 94.4,
+    "opinion_density": 100.0,
+    "feature_density": 100.0,
+    "average_length": 100.0,
+    "language_quality": 97.4,
+    "dataset_diversity": 100.0
+   }
+  },
+  "aspects": [
+   {
+    "aspect": "Battery",
+    "mention_count": 5,
+    "positive_count": 5,
+    "neutral_count": 0,
+    "negative_count": 0,
+    "positive_percentage": 100.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 0.0,
+    "average_confidence": 0.838,
+    "overall": "Positive"
+   },
+   {
+    "aspect": "Performance",
+    "mention_count": 5,
+    "positive_count": 3,
+    "neutral_count": 1,
+    "negative_count": 1,
+    "positive_percentage": 60.0,
+    "neutral_percentage": 20.0,
+    "negative_percentage": 20.0,
+    "average_confidence": 0.744,
+    "overall": "Positive"
+   },
+   {
+    "aspect": "Camera",
+    "mention_count": 3,
+    "positive_count": 1,
+    "neutral_count": 0,
+    "negative_count": 2,
+    "positive_percentage": 33.3,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 66.7,
+    "average_confidence": 0.793,
+    "overall": "Negative"
+   },
+   {
+    "aspect": "Price",
+    "mention_count": 2,
+    "positive_count": 1,
+    "neutral_count": 0,
+    "negative_count": 1,
+    "positive_percentage": 50.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 50.0,
+    "average_confidence": 0.755,
+    "overall": "Neutral"
+   },
+   {
+    "aspect": "Display",
+    "mention_count": 2,
+    "positive_count": 2,
+    "neutral_count": 0,
+    "negative_count": 0,
+    "positive_percentage": 100.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 0.0,
+    "average_confidence": 0.835,
+    "overall": "Positive"
+   },
+   {
+    "aspect": "Sound",
+    "mention_count": 2,
+    "positive_count": 2,
+    "neutral_count": 0,
+    "negative_count": 0,
+    "positive_percentage": 100.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 0.0,
+    "average_confidence": 0.805,
+    "overall": "Positive"
+   },
+   {
+    "aspect": "Charging",
+    "mention_count": 2,
+    "positive_count": 1,
+    "neutral_count": 0,
+    "negative_count": 1,
+    "positive_percentage": 50.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 50.0,
+    "average_confidence": 0.81,
+    "overall": "Neutral"
+   },
+   {
+    "aspect": "Design",
+    "mention_count": 1,
+    "positive_count": 1,
+    "neutral_count": 0,
+    "negative_count": 0,
+    "positive_percentage": 100.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 0.0,
+    "average_confidence": 0.92,
+    "overall": "Positive"
+   },
+   {
+    "aspect": "Storage",
+    "mention_count": 1,
+    "positive_count": 0,
+    "neutral_count": 1,
+    "negative_count": 0,
+    "positive_percentage": 0.0,
+    "neutral_percentage": 100.0,
+    "negative_percentage": 0.0,
+    "average_confidence": 0.6,
+    "overall": "Neutral"
+   },
+   {
+    "aspect": "Delivery",
+    "mention_count": 1,
+    "positive_count": 0,
+    "neutral_count": 1,
+    "negative_count": 0,
+    "positive_percentage": 0.0,
+    "neutral_percentage": 100.0,
+    "negative_percentage": 0.0,
+    "average_confidence": 0.6,
+    "overall": "Neutral"
+   },
+   {
+    "aspect": "Build Quality",
+    "mention_count": 1,
+    "positive_count": 0,
+    "neutral_count": 0,
+    "negative_count": 1,
+    "positive_percentage": 0.0,
+    "neutral_percentage": 0.0,
+    "negative_percentage": 100.0,
+    "average_confidence": 0.76,
+    "overall": "Negative"
+   }
+  ],
+  "pros": [
+   {
+    "aspect": "Battery",
+    "percentage": 100.0,
+    "mention_count": 5,
+    "average_confidence": 0.838,
+    "quotes": [
+     "“The battery backup is excellent.” — review #17",
+     "“The battery backup is amazing and lasts through heavy use.” — review #8"
+    ]
+   },
+   {
+    "aspect": "Display",
+    "percentage": 100.0,
+    "mention_count": 2,
+    "average_confidence": 0.835,
+    "quotes": [
+     "“Love the display and the design, absolutely gorgeous device.” — review #2",
+     "“The screen is bright and the sound is loud enough for videos.” — review #15"
+    ]
+   },
+   {
+    "aspect": "Sound",
+    "percentage": 100.0,
+    "mention_count": 2,
+    "average_confidence": 0.805,
+    "quotes": [
+     "“The speaker is fantastic and bass is surprisingly deep.” — review #3",
+     "“The screen is bright and the sound is loud enough for videos.” — review #15"
+    ]
+   },
+   {
+    "aspect": "Design",
+    "percentage": 100.0,
+    "mention_count": 1,
+    "average_confidence": 0.92,
+    "quotes": [
+     "“Love the display and the design, absolutely gorgeous device.” — review #2"
+    ]
+   },
+   {
+    "aspect": "Performance",
+    "percentage": 60.0,
+    "mention_count": 5,
+    "average_confidence": 0.744,
+    "quotes": [
+     "“Performance is smooth for daily apps but stutters in heavy games.” — review #14",
+     "“Performance is snappy but the phone gets warm during long gaming sessions.” — review #4"
+    ]
+   }
+  ],
+  "cons": [
+   {
+    "aspect": "Build Quality",
+    "percentage": 100.0,
+    "mention_count": 1,
+    "average_confidence": 0.76,
+    "quotes": [
+     "“Charging speed is impressive but the charger cable feels flimsy.” — review #13"
+    ]
+   },
+   {
+    "aspect": "Camera",
+    "percentage": 66.7,
+    "mention_count": 3,
+    "average_confidence": 0.793,
+    "quotes": [
+     "“The battery is amazing but the camera is disappointing for this price.” — review #1",
+     "“Camera shutter lag is annoying but picture quality is decent.” — review #11"
+    ]
+   }
+  ],
+  "most_discussed": [
+   {
+    "aspect": "Battery",
+    "percentage": 100.0,
+    "mention_count": 5,
+    "average_confidence": 0.838
+   },
+   {
+    "aspect": "Performance",
+    "percentage": 60.0,
+    "mention_count": 5,
+    "average_confidence": 0.744
+   },
+   {
+    "aspect": "Camera",
+    "percentage": 33.3,
+    "mention_count": 3,
+    "average_confidence": 0.793
+   },
+   {
+    "aspect": "Price",
+    "percentage": 50.0,
+    "mention_count": 2,
+    "average_confidence": 0.755
+   },
+   {
+    "aspect": "Display",
+    "percentage": 100.0,
+    "mention_count": 2,
+    "average_confidence": 0.835
+   },
+   {
+    "aspect": "Sound",
+    "percentage": 100.0,
+    "mention_count": 2,
+    "average_confidence": 0.805
+   },
+   {
+    "aspect": "Charging",
+    "percentage": 50.0,
+    "mention_count": 2,
+    "average_confidence": 0.81
+   },
+   {
+    "aspect": "Design",
+    "percentage": 100.0,
+    "mention_count": 1,
+    "average_confidence": 0.92
+   }
+  ],
+  "statistics": {
+   "reviews_analyzed": 18,
+   "duplicates_removed": 0,
+   "near_duplicates_detected": 2,
+   "invalid_reviews": 0,
+   "uncertain_reviews": 2,
+   "suspicious_reviews": 1,
+   "average_confidence": 0.7656,
+   "average_word_count": 9.5,
+   "aspect_mentions_total": 25,
+   "processing_ms": 90
+  },
+  "verdict": {
+   "overall_sentiment": "Predominantly Positive",
+   "positive_percentage": 72.2,
+   "neutral_percentage": 11.1,
+   "negative_percentage": 0.0,
+   "statement": "Customer sentiment is predominantly positive: 72.2% positive, 11.1% neutral and 0.0% negative across 18 analysed reviews (dataset quality 93/100). Customers most favour: Battery, Display, Sound. Main complaints concern: Build Quality, Camera.",
+   "strongest_positive_aspects": [
+    "Battery",
+    "Display",
+    "Sound"
+   ],
+   "main_negative_aspects": [
+    "Build Quality",
+    "Camera"
+   ]
+  },
+  "trust": {
+   "score": 81.0,
+   "band": "High confidence",
+   "components": {
+    "validReviewPct": 88.9,
+    "suspiciousPct": 5.6,
+    "duplicatePct": 11.1,
+    "volumeScore": 42.4,
+    "qualityScore": 92.6
+   }
+  },
+  "emotions": [
+   {
+    "emotion": "Joy",
+    "count": 10
+   },
+   {
+    "emotion": "Love",
+    "count": 1
+   },
+   {
+    "emotion": "Anger",
+    "count": 1
+   },
+   {
+    "emotion": "Sadness",
+    "count": 1
+   },
+   {
+    "emotion": "Fear",
+    "count": 0
+   },
+   {
+    "emotion": "No explicit emotion",
+    "count": 6
+   }
+  ]
+ },
+ "results": [
+  {
+   "id": 1,
+   "original_text": "The battery is amazing but the camera is disappointing for this price.",
+   "normalized_text": "The battery is amazing but the camera is disappointing for this price.",
+   "word_count": 12,
+   "review_probability": 0.9845,
+   "not_review_probability": 0.0155,
+   "review_status": "VALID",
+   "relevance": 0.998,
+   "relevance_level": "HIGH",
+   "sentiment": "Mixed",
+   "confidence": 0.7504,
+   "positive_probability": 0.1875,
+   "negative_probability": 0.7504,
+   "neutral_probability": 0.0621,
+   "aspects": [
+    {
+     "category": "Battery",
+     "sentiment": "Positive",
+     "confidence": 0.86
+    },
+    {
+     "category": "Camera",
+     "sentiment": "Negative",
+     "confidence": 0.76
+    },
+    {
+     "category": "Price",
+     "sentiment": "Negative",
+     "confidence": 0.76
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "disappoint",
+    "amaze",
+    "disappoint price",
+    "price",
+    "battery",
+    "camera"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 2,
+   "original_text": "Love the display and the design, absolutely gorgeous device.",
+   "normalized_text": "Love the display and the design, absolutely gorgeous device.",
+   "word_count": 9,
+   "review_probability": 0.9685,
+   "not_review_probability": 0.0315,
+   "review_status": "VALID",
+   "relevance": 0.862,
+   "relevance_level": "HIGH",
+   "sentiment": "Positive",
+   "confidence": 0.965,
+   "positive_probability": 0.965,
+   "negative_probability": 0.0135,
+   "neutral_probability": 0.0215,
+   "aspects": [
+    {
+     "category": "Display",
+     "sentiment": "Positive",
+     "confidence": 0.92
+    },
+    {
+     "category": "Design",
+     "sentiment": "Positive",
+     "confidence": 0.92
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "love",
+    "gorgeous",
+    "absolutely gorgeous",
+    "absolutely",
+    "device",
+    "display"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 3,
+   "original_text": "The speaker is fantastic and bass is surprisingly deep.",
+   "normalized_text": "The speaker is fantastic and bass is surprisingly deep.",
+   "word_count": 9,
+   "review_probability": 0.8487,
+   "not_review_probability": 0.1513,
+   "review_status": "VALID",
+   "relevance": 0.711,
+   "relevance_level": "HIGH",
+   "sentiment": "Positive",
+   "confidence": 0.9891,
+   "positive_probability": 0.9891,
+   "negative_probability": 0.0034,
+   "neutral_probability": 0.0075,
+   "aspects": [
+    {
+     "category": "Sound",
+     "sentiment": "Positive",
+     "confidence": 0.86
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "fantastic",
+    "surprisingly",
+    "deep",
+    "bass",
+    "speaker"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 4,
+   "original_text": "Performance is snappy but the phone gets warm during long gaming sessions.",
+   "normalized_text": "Performance is snappy but the phone gets warm during long gaming sessions.",
+   "word_count": 12,
+   "review_probability": 0.9138,
+   "not_review_probability": 0.0862,
+   "review_status": "VALID",
+   "relevance": 0.72,
+   "relevance_level": "HIGH",
+   "sentiment": "Positive",
+   "confidence": 0.6981,
+   "positive_probability": 0.6981,
+   "negative_probability": 0.2458,
+   "neutral_probability": 0.0561,
+   "aspects": [
+    {
+     "category": "Performance",
+     "sentiment": "Positive",
+     "confidence": 0.75
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "long game",
+    "warm",
+    "performance",
+    "warm long",
+    "phone get",
+    "get"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 5,
+   "original_text": "Camera is superb in daylight, night mode still needs work.",
+   "normalized_text": "Camera is superb in daylight, night mode still needs work.",
+   "word_count": 10,
+   "review_probability": 0.8952,
+   "not_review_probability": 0.1048,
+   "review_status": "VALID",
+   "relevance": 0.718,
+   "relevance_level": "HIGH",
+   "sentiment": "Positive",
+   "confidence": 0.4946,
+   "positive_probability": 0.4946,
+   "negative_probability": 0.1266,
+   "neutral_probability": 0.3788,
+   "aspects": [
+    {
+     "category": "Camera",
+     "sentiment": "Positive",
+     "confidence": 0.86
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "superb",
+    "still need",
+    "need",
+    "night mode",
+    "night",
+    "daylight"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 6,
+   "original_text": "Great value for money overall, battery easily lasts a day.",
+   "normalized_text": "Great value for money overall, battery easily lasts a day.",
+   "word_count": 10,
+   "review_probability": 0.8338,
+   "not_review_probability": 0.1662,
+   "review_status": "VALID",
+   "relevance": 0.842,
+   "relevance_level": "HIGH",
+   "sentiment": "Positive",
+   "confidence": 0.9343,
+   "positive_probability": 0.9343,
+   "negative_probability": 0.0158,
+   "neutral_probability": 0.0499,
+   "aspects": [
+    {
+     "category": "Battery",
+     "sentiment": "Positive",
+     "confidence": 0.75
+    },
+    {
+     "category": "Price",
+     "sentiment": "Positive",
+     "confidence": 0.75
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "great",
+    "value money",
+    "value",
+    "overall",
+    "money overall",
+    "money"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 7,
+   "original_text": "BEST BEST BEST BUY NOW!!!! LIMITED OFFER CLICK HERE!!!",
+   "normalized_text": "BEST BEST BEST BUY NOW! LIMITED OFFER CLICK HERE!",
+   "word_count": 9,
+   "review_probability": 0.3884,
+   "not_review_probability": 0.6116,
+   "review_status": "UNCERTAIN",
+   "relevance": 0.508,
+   "relevance_level": "MEDIUM",
+   "sentiment": "Positive",
+   "confidence": 0.9636,
+   "positive_probability": 0.9636,
+   "negative_probability": 0.0062,
+   "neutral_probability": 0.0302,
+   "aspects": [],
+   "suspicion_score": 100,
+   "suspicious": true,
+   "suspicion_reasons": [
+    "shouted text (mostly capital letters)",
+    "excessive punctuation",
+    "excessive repetition of the same words",
+    "excessive repeated characters",
+    "promotional language"
+   ],
+   "contributing_terms": [
+    "best",
+    "limit",
+    "click",
+    "buy",
+    "offer",
+    "best buy"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 8,
+   "original_text": "The battery backup is amazing and lasts through heavy use.",
+   "normalized_text": "The battery backup is amazing and lasts through heavy use.",
+   "word_count": 10,
+   "review_probability": 0.9301,
+   "not_review_probability": 0.0699,
+   "review_status": "VALID",
+   "relevance": 0.573,
+   "relevance_level": "MEDIUM",
+   "sentiment": "Positive",
+   "confidence": 0.9724,
+   "positive_probability": 0.9724,
+   "negative_probability": 0.0075,
+   "neutral_probability": 0.0201,
+   "aspects": [
+    {
+     "category": "Battery",
+     "sentiment": "Positive",
+     "confidence": 0.86
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "amaze",
+    "backup",
+    "heavy use",
+    "use",
+    "battery backup",
+    "amaze last"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 9,
+   "original_text": "It has 128GB storage and supports 5G networks in my area.",
+   "normalized_text": "It has  NUMTOK0  storage and supports 5G networks in my area.",
+   "word_count": 11,
+   "review_probability": 0.9529,
+   "not_review_probability": 0.0471,
+   "review_status": "VALID",
+   "relevance": 0.276,
+   "relevance_level": "LOW",
+   "sentiment": "Positive",
+   "confidence": 0.4322,
+   "positive_probability": 0.4322,
+   "negative_probability": 0.3942,
+   "neutral_probability": 0.1736,
+   "aspects": [
+    {
+     "category": "Storage",
+     "sentiment": "Neutral",
+     "confidence": 0.6
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "storage",
+    "area",
+    "network",
+    "5g",
+    "128gb",
+    "support"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 10,
+   "original_text": "The package arrived yesterday, box was sealed properly.",
+   "normalized_text": "The package arrived yesterday, box was sealed properly.",
+   "word_count": 8,
+   "review_probability": 0.8282,
+   "not_review_probability": 0.1718,
+   "review_status": "VALID",
+   "relevance": 0.408,
+   "relevance_level": "MEDIUM",
+   "sentiment": "Neutral",
+   "confidence": 0.5178,
+   "positive_probability": 0.0537,
+   "negative_probability": 0.4285,
+   "neutral_probability": 0.5178,
+   "aspects": [
+    {
+     "category": "Delivery",
+     "sentiment": "Neutral",
+     "confidence": 0.6
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "package arrive",
+    "yesterday",
+    "seal properly",
+    "arrive yesterday",
+    "yesterday box",
+    "seal"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 11,
+   "original_text": "Camera shutter lag is annoying but picture quality is decent.",
+   "normalized_text": "Camera shutter lag is annoying but picture quality is decent.",
+   "word_count": 10,
+   "review_probability": 0.9536,
+   "not_review_probability": 0.0464,
+   "review_status": "VALID",
+   "relevance": 0.86,
+   "relevance_level": "HIGH",
+   "sentiment": "Mixed",
+   "confidence": 0.4091,
+   "positive_probability": 0.4091,
+   "negative_probability": 0.2209,
+   "neutral_probability": 0.3699,
+   "aspects": [
+    {
+     "category": "Camera",
+     "sentiment": "Negative",
+     "confidence": 0.76
+    },
+    {
+     "category": "Performance",
+     "sentiment": "Negative",
+     "confidence": 0.76
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "decent",
+    "annoy",
+    "picture quality",
+    "quality decent",
+    "lag",
+    "picture"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 12,
+   "original_text": "😍😍😍 best purchase ever, totally love this phone!",
+   "normalized_text": "😍😍😍 best purchase ever, totally love this phone!",
+   "word_count": 7,
+   "review_probability": 0.8485,
+   "not_review_probability": 0.1515,
+   "review_status": "VALID",
+   "relevance": 0.577,
+   "relevance_level": "MEDIUM",
+   "sentiment": "Positive",
+   "confidence": 0.9975,
+   "positive_probability": 0.9975,
+   "negative_probability": 0.0017,
+   "neutral_probability": 0.0008,
+   "aspects": [],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "love",
+    "best",
+    "best purchase",
+    "ever",
+    "totally love",
+    "love phone"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 13,
+   "original_text": "Charging speed is impressive but the charger cable feels flimsy.",
+   "normalized_text": "Charging speed is impressive but the charger cable feels flimsy.",
+   "word_count": 10,
+   "review_probability": 0.9501,
+   "not_review_probability": 0.0499,
+   "review_status": "VALID",
+   "relevance": 0.843,
+   "relevance_level": "HIGH",
+   "sentiment": "Mixed",
+   "confidence": 0.6772,
+   "positive_probability": 0.6772,
+   "negative_probability": 0.271,
+   "neutral_probability": 0.0518,
+   "aspects": [
+    {
+     "category": "Charging",
+     "sentiment": "Positive",
+     "confidence": 0.86
+    },
+    {
+     "category": "Performance",
+     "sentiment": "Positive",
+     "confidence": 0.86
+    },
+    {
+     "category": "Charging",
+     "sentiment": "Negative",
+     "confidence": 0.76
+    },
+    {
+     "category": "Build Quality",
+     "sentiment": "Negative",
+     "confidence": 0.76
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "flimsy",
+    "feel flimsy",
+    "charge",
+    "feel",
+    "charger cable",
+    "charge speed"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 14,
+   "original_text": "Performance is smooth for daily apps but stutters in heavy games.",
+   "normalized_text": "Performance is smooth for daily apps but stutters in heavy games.",
+   "word_count": 11,
+   "review_probability": 0.8595,
+   "not_review_probability": 0.1405,
+   "review_status": "VALID",
+   "relevance": 0.696,
+   "relevance_level": "MEDIUM",
+   "sentiment": "Positive",
+   "confidence": 0.8219,
+   "positive_probability": 0.8219,
+   "negative_probability": 0.0742,
+   "neutral_probability": 0.104,
+   "aspects": [
+    {
+     "category": "Performance",
+     "sentiment": "Positive",
+     "confidence": 0.75
+    },
+    {
+     "category": "Performance",
+     "sentiment": "Neutral",
+     "confidence": 0.6
+    }
+   ],
+   "suspicion_score": 15,
+   "suspicious": false,
+   "suspicion_reasons": [
+    "near-duplicate of another review"
+   ],
+   "contributing_terms": [
+    "smooth",
+    "daily",
+    "stutter",
+    "performance",
+    "apps",
+    "game"
+   ],
+   "duplicate": false,
+   "near_duplicate": true,
+   "duplicate_of": 4
+  },
+  {
+   "id": 15,
+   "original_text": "The screen is bright and the sound is loud enough for videos.",
+   "normalized_text": "The screen is bright and the sound is loud enough for videos.",
+   "word_count": 12,
+   "review_probability": 0.9618,
+   "not_review_probability": 0.0382,
+   "review_status": "VALID",
+   "relevance": 0.711,
+   "relevance_level": "HIGH",
+   "sentiment": "Positive",
+   "confidence": 0.5344,
+   "positive_probability": 0.5344,
+   "negative_probability": 0.2069,
+   "neutral_probability": 0.2587,
+   "aspects": [
+    {
+     "category": "Display",
+     "sentiment": "Positive",
+     "confidence": 0.75
+    },
+    {
+     "category": "Sound",
+     "sentiment": "Positive",
+     "confidence": 0.75
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "bright",
+    "loud enough",
+    "screen",
+    "sound",
+    "loud",
+    "video"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 16,
+   "original_text": "Battery life is excellent.",
+   "normalized_text": "Battery life is excellent.",
+   "word_count": 4,
+   "review_probability": 0.8942,
+   "not_review_probability": 0.1058,
+   "review_status": "VALID",
+   "relevance": 0.567,
+   "relevance_level": "MEDIUM",
+   "sentiment": "Positive",
+   "confidence": 0.9639,
+   "positive_probability": 0.9639,
+   "negative_probability": 0.0048,
+   "neutral_probability": 0.0314,
+   "aspects": [
+    {
+     "category": "Battery",
+     "sentiment": "Positive",
+     "confidence": 0.86
+    }
+   ],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "excellent",
+    "life",
+    "battery life",
+    "life excellent",
+    "battery"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  },
+  {
+   "id": 17,
+   "original_text": "The battery backup is excellent.",
+   "normalized_text": "The battery backup is excellent.",
+   "word_count": 5,
+   "review_probability": 0.8817,
+   "not_review_probability": 0.1183,
+   "review_status": "VALID",
+   "relevance": 0.566,
+   "relevance_level": "MEDIUM",
+   "sentiment": "Positive",
+   "confidence": 0.9876,
+   "positive_probability": 0.9876,
+   "negative_probability": 0.003,
+   "neutral_probability": 0.0095,
+   "aspects": [
+    {
+     "category": "Battery",
+     "sentiment": "Positive",
+     "confidence": 0.86
+    }
+   ],
+   "suspicion_score": 15,
+   "suspicious": false,
+   "suspicion_reasons": [
+    "near-duplicate of another review"
+   ],
+   "contributing_terms": [
+    "excellent",
+    "backup",
+    "battery backup",
+    "battery"
+   ],
+   "duplicate": false,
+   "near_duplicate": true,
+   "duplicate_of": 16
+  },
+  {
+   "id": 18,
+   "original_text": "Tomorrow I have my DBMS exam so I cannot review it today.",
+   "normalized_text": "Tomorrow I have my DBMS exam so I cannot review it today.",
+   "word_count": 12,
+   "review_probability": 0.2176,
+   "not_review_probability": 0.7824,
+   "review_status": "UNCERTAIN",
+   "relevance": 0.033,
+   "relevance_level": "LOW",
+   "sentiment": "Neutral",
+   "confidence": 0.6719,
+   "positive_probability": 0.0619,
+   "negative_probability": 0.6719,
+   "neutral_probability": 0.2662,
+   "aspects": [],
+   "suspicion_score": 0,
+   "suspicious": false,
+   "suspicion_reasons": [],
+   "contributing_terms": [
+    "not_review",
+    "exam",
+    "today",
+    "tomorrow"
+   ],
+   "duplicate": false,
+   "near_duplicate": false,
+   "duplicate_of": null
+  }
+ ]
+}
